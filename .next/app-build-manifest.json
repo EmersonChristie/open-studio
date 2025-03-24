@@ -21,15 +21,30 @@
       "static/chunks/main-app.js",
       "static/chunks/app/[tenant]/(dashboard)/layout.js"
     ],
-    "/[tenant]/(dashboard)/chats/page": [
+    "/[tenant]/(dashboard)/dashboard/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
-      "static/chunks/app/[tenant]/(dashboard)/chats/page.js"
+      "static/chunks/app/[tenant]/(dashboard)/dashboard/page.js"
     ],
     "/_not-found/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
       "static/chunks/app/_not-found/page.js"
+    ],
+    "/[tenant]/(dashboard)/tasks/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/chunks/app/[tenant]/(dashboard)/tasks/page.js"
+    ],
+    "/[tenant]/(dashboard)/apps/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/chunks/app/[tenant]/(dashboard)/apps/page.js"
+    ],
+    "/[tenant]/(dashboard)/chats/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/chunks/app/[tenant]/(dashboard)/chats/page.js"
     ]
   }
 }

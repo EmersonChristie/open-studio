@@ -1,4 +1,4 @@
-import { headers } from 'next/headers'
+import { headers, type UnsafeUnwrappedHeaders } from 'next/headers';
 
 /**
  * Get the current tenant ID from request headers
@@ -6,7 +6,7 @@ import { headers } from 'next/headers'
  * that was set by the middleware
  */
 export function getTenant(): string {
-  const headersList = headers()
+  const headersList = (headers() as unknown as UnsafeUnwrappedHeaders)
   const tenant = headersList.get('x-tenant')
 
   if (!tenant) {
