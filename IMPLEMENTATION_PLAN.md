@@ -78,6 +78,21 @@ Based on the current codebase, we've made the following progress:
     - [x] Update URL prop from `to` to `href` in Link components
     - [x] Update navigation methods from `navigate({ to: '/' })` to `router.push('/')`
     - [x] Update component type definitions to use Next.js types instead of TanStack Router types
+  - [x] Fix dynamic imports with `ssr: false` in auth pages by:
+    - [x] Creating client-side wrappers to handle Next.js dynamic imports with `ssr: false` option
+    - [x] Splitting components into server and client parts to maintain proper component hierarchy
+    - [x] Moving skeletons into separate components for better organization
+  - [x] Fix routing issues with error pages by:
+    - [x] Creating standalone page components for `/error` and `/not-found` routes
+    - [x] Updating the middleware to properly skip tenant resolution for error pages
+    - [x] Modifying sidebar navigation logic to handle error pages with proper routing
+    - [x] Creating dedicated error components in `src/features/errors/`
+  - [x] Add additional error pages:
+    - [x] Creating `/unauthorized` (401) page for authentication errors
+    - [x] Creating `/forbidden` (403) page for permission errors
+    - [x] Creating `/maintenance` (503) page for service unavailable status
+    - [x] Updating middleware to skip tenant resolution for all error pages
+    - [x] Adding new error pages to the sidebar navigation
   - [ ] Convert complex client components to server components where possible
   - [ ] Update components that rely on router parameters to use Next.js useParams hook
   - [ ] Add tenant and other middleware for route protection

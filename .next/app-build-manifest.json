@@ -1,5 +1,10 @@
 {
   "pages": {
+    "/global-error": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/chunks/app/global-error.js"
+    ],
     "/layout": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
@@ -31,25 +36,65 @@
       "static/chunks/main-app.js",
       "static/chunks/app/_not-found/page.js"
     ],
-    "/[tenant]/(dashboard)/tasks/page": [
+    "/not-found/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
-      "static/chunks/app/[tenant]/(dashboard)/tasks/page.js"
+      "static/chunks/app/not-found/page.js"
     ],
-    "/[tenant]/(dashboard)/apps/page": [
+    "/error/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
-      "static/chunks/app/[tenant]/(dashboard)/apps/page.js"
+      "static/chunks/app/error/page.js"
     ],
-    "/[tenant]/(dashboard)/chats/page": [
+    "/unauthorized/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
-      "static/chunks/app/[tenant]/(dashboard)/chats/page.js"
+      "static/chunks/app/unauthorized/page.js"
     ],
-    "/[tenant]/(dashboard)/users/page": [
+    "/forbidden/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
-      "static/chunks/app/[tenant]/(dashboard)/users/page.js"
+      "static/chunks/app/forbidden/page.js"
+    ],
+    "/maintenance/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/chunks/app/maintenance/page.js"
+    ],
+    "/[tenant]/(dashboard)/settings/layout": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/chunks/app/[tenant]/(dashboard)/settings/layout.js"
+    ],
+    "/[tenant]/(dashboard)/settings/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/chunks/app/[tenant]/(dashboard)/settings/page.js"
+    ],
+    "/[tenant]/(dashboard)/settings/account/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/chunks/app/[tenant]/(dashboard)/settings/account/page.js"
+    ],
+    "/[tenant]/(dashboard)/settings/appearance/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/chunks/app/[tenant]/(dashboard)/settings/appearance/page.js"
+    ],
+    "/[tenant]/(dashboard)/settings/notifications/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/chunks/app/[tenant]/(dashboard)/settings/notifications/page.js"
+    ],
+    "/[tenant]/(dashboard)/settings/display/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/chunks/app/[tenant]/(dashboard)/settings/display/page.js"
+    ],
+    "/[tenant]/(dashboard)/help-center/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/chunks/app/[tenant]/(dashboard)/help-center/page.js"
     ]
   }
 }

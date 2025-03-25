@@ -116,6 +116,21 @@ export const sidebarData: SidebarData = {
               url: '/error',
               icon: IconServerOff,
             },
+            {
+              title: 'Unauthorized',
+              url: '/unauthorized',
+              icon: IconLock,
+            },
+            {
+              title: 'Forbidden',
+              url: '/forbidden',
+              icon: IconBarrierBlock,
+            },
+            {
+              title: 'Maintenance',
+              url: '/maintenance',
+              icon: IconUserOff,
+            },
           ],
         },
       ],

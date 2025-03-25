@@ -77,18 +77,7 @@ export default function Chats() {
   return (
     <>
       {/* ===== Top Heading ===== */}
-      {/* <Header fixed>
-          <Search />
-          <div className='ml-auto flex items-center space-x-4'>
-            <ThemeSwitch />
-            <ProfileDropdown />
-          </div>
-        </Header> */}
-
-      <Header
-        fixed
-        className='flex h-16 items-center gap-3 bg-background p-4 shadow-none sm:gap-4'
-      >
+      <Header fixed>
         <Search />
         <div className='ml-auto flex items-center space-x-4'>
           <ThemeSwitch />
@@ -96,8 +85,7 @@ export default function Chats() {
         </div>
       </Header>
 
-      {/* <Main className='flex h-[calc(100vh-64px)] flex-col px-4 pb-4 pt-0'> */}
-      <Main className='fixed-main flex flex-grow flex-col overflow-hidden px-4 py-6 peer-[.header-fixed]/header:mt-16'>
+      <Main fixed>
         <div className='flex h-full w-full'>
           {/* Left Side - Inbox */}
           <div className='flex h-full w-[320px] flex-none flex-col border-r border-border bg-background dark:bg-background'>
@@ -179,11 +167,11 @@ export default function Chats() {
           </div>
 
           {/* Right Side - Chat */}
-          <div className='relative flex h-full flex-1 bg-slate-50 dark:bg-slate-950/70'>
+          <div className='relative flex h-full flex-1 bg-secondary/30 dark:bg-background/30'>
             {selectedUser ? (
               <div className='flex h-full w-full flex-col'>
                 {/* Top Part */}
-                <div className='flex flex-none justify-between border-b border-border bg-background p-3 dark:bg-background'>
+                <div className='flex flex-none justify-between border-b border-border bg-background p-3'>
                   {/* Left */}
                   <div className='flex gap-3'>
                     <Button
@@ -251,29 +239,31 @@ export default function Chats() {
                       {currentMessage &&
                         Object.keys(currentMessage).map((key) => (
                           <Fragment key={key}>
-                            <div className='py-2 text-center text-xs text-muted-foreground'>
+                            <div className='my-4 py-2 text-center text-xs text-muted-foreground'>
                               {key}
                             </div>
                             {currentMessage[key].map((msg, index) => (
                               <div
                                 key={`${msg.sender}-${msg.timestamp}-${index}`}
                                 className={cn(
-                                  'mb-4 max-w-[75%] px-4 py-2 shadow-sm',
+                                  'mb-8 max-w-[75%]',
                                   msg.sender === 'You'
-                                    ? 'ml-auto rounded-2xl rounded-br-none bg-primary text-primary-foreground'
-                                    : 'mr-auto rounded-2xl rounded-bl-none bg-muted dark:bg-slate-800'
+                                    ? 'ml-auto rounded-l-2xl rounded-tr-2xl bg-primary text-primary-foreground'
+                                    : 'mr-auto rounded-r-2xl rounded-tl-2xl bg-muted'
                                 )}
                               >
-                                <div>{msg.message}</div>
-                                <div
-                                  className={cn(
-                                    'mt-1 text-xs',
-                                    msg.sender === 'You'
-                                      ? 'text-right text-primary-foreground/75'
-                                      : 'text-muted-foreground'
-                                  )}
-                                >
-                                  {format(msg.timestamp, 'h:mm a')}
+                                <div className={cn('px-4 py-3 shadow-sm')}>
+                                  <div>{msg.message}</div>
+                                  <div
+                                    className={cn(
+                                      'mt-1 text-xs font-light italic',
+                                      msg.sender === 'You'
+                                        ? 'text-right text-primary-foreground/80'
+                                        : 'text-muted-foreground'
+                                    )}
+                                  >
+                                    {format(msg.timestamp, 'h:mm a')}
+                                  </div>
                                 </div>
                               </div>
                             ))}
@@ -286,7 +276,7 @@ export default function Chats() {
                       className='flex flex-none gap-2'
                       onSubmit={handleSendMessage}
                     >
-                      <div className='flex flex-1 items-center gap-2 rounded-md border border-input bg-background px-3 py-2 focus-within:ring-1 focus-within:ring-ring dark:bg-muted/20'>
+                      <div className='flex flex-1 items-center gap-2 rounded-md border border-input bg-background px-3 py-2 focus-within:ring-1 focus-within:ring-ring'>
                         <div className='flex space-x-1'>
                           <Button
                             size='icon'
@@ -303,7 +293,7 @@ export default function Chats() {
                             size='icon'
                             type='button'
                             variant='ghost'
-                            className='hidden h-8 w-8 md:inline-flex'
+                            className='h-8 w-8 sm:inline-flex'
                           >
                             <IconPhotoPlus
                               size={18}
@@ -314,7 +304,7 @@ export default function Chats() {
                             size='icon'
                             type='button'
                             variant='ghost'
-                            className='hidden h-8 w-8 md:inline-flex'
+                            className='h-8 w-8 sm:inline-flex'
                           >
                             <IconPaperclip
                               size={18}
@@ -331,12 +321,12 @@ export default function Chats() {
                           variant='ghost'
                           size='icon'
                           type='submit'
-                          className='hidden h-8 w-8 md:inline-flex'
+                          className='h-8 w-8 sm:inline-flex'
                         >
-                          <IconSend size={18} />
+                          <IconSend size={18} className='stroke-primary' />
                         </Button>
                       </div>
-                      <Button className='md:hidden' type='submit'>
+                      <Button className='sm:hidden' type='submit'>
                         <IconSend size={16} className='mr-2' /> Send
                       </Button>
                     </form>

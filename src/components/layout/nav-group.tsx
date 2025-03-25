@@ -1,7 +1,7 @@
 import { ReactNode } from 'react'
 import { ChevronRight } from 'lucide-react'
 import Link from 'next/link'
-import { usePathname } from 'next/navigation'
+import { usePathname, useRouter } from 'next/navigation'
 import {
   Collapsible,
   CollapsibleContent,
@@ -72,6 +72,18 @@ const SidebarMenuLink = ({
   pathname: string
 }) => {
   const { setOpenMobile } = useSidebar()
+  const router = useRouter()
+
+  // For error pages, use programmatic navigation with router.push
+  // to ensure we navigate to the root-level pages
+  const handleClick = () => {
+    setOpenMobile(false)
+
+    if (item.url === '/error' || item.url === '/not-found') {
+      router.push(item.url)
+    }
+  }
+
   return (
     <SidebarMenuItem>
       <SidebarMenuButton
@@ -79,7 +91,7 @@ const SidebarMenuLink = ({
         isActive={checkIsActive(pathname, item)}
         tooltip={item.title}
       >
-        <Link href={item.url} onClick={() => setOpenMobile(false)}>
+        <Link href={item.url} onClick={handleClick}>
           {item.icon && <item.icon />}
           <span>{item.title}</span>
           {item.badge && <NavBadge>{item.badge}</NavBadge>}

@@ -31,16 +31,22 @@ export function extractTenantFromRequest(request: NextRequest): string {
  * allowing server components to access it.
  */
 export function withTenant(request: NextRequest) {
-  const tenant = extractTenantFromRequest(request)
-
-  // Skip tenant resolution for non-tenant routes
+  // Skip tenant resolution for specific routes
   if (
     request.nextUrl.pathname.startsWith('/_next') ||
     request.nextUrl.pathname.startsWith('/api') ||
-    request.nextUrl.pathname === '/favicon.ico'
+    request.nextUrl.pathname === '/favicon.ico' ||
+    // Error pages
+    request.nextUrl.pathname === '/error' ||
+    request.nextUrl.pathname === '/not-found' ||
+    request.nextUrl.pathname === '/unauthorized' ||
+    request.nextUrl.pathname === '/forbidden' ||
+    request.nextUrl.pathname === '/maintenance'
   ) {
     return NextResponse.next()
   }
+
+  const tenant = extractTenantFromRequest(request)
 
   // Add tenant to request headers for server components
   const requestHeaders = new Headers(request.headers)
