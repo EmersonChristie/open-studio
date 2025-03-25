@@ -3,5 +3,6 @@
   "/[tenant]/(dashboard)/dashboard/page": "app/[tenant]/(dashboard)/dashboard/page.js",
   "/[tenant]/(dashboard)/tasks/page": "app/[tenant]/(dashboard)/tasks/page.js",
   "/[tenant]/(dashboard)/apps/page": "app/[tenant]/(dashboard)/apps/page.js",
-  "/[tenant]/(dashboard)/chats/page": "app/[tenant]/(dashboard)/chats/page.js"
+  "/[tenant]/(dashboard)/chats/page": "app/[tenant]/(dashboard)/chats/page.js",
+  "/[tenant]/(dashboard)/users/page": "app/[tenant]/(dashboard)/users/page.js"
 }

@@ -67,10 +67,28 @@ export default function Chats() {
 
   const users = conversations.map(({ messages, ...user }) => user)
 
+  // Handle sending a new message (prevents form submission freezing)
+  const handleSendMessage = (e: React.FormEvent) => {
+    e.preventDefault()
+    // In a real app, this would send the message
+    console.log('Message sent')
+  }
+
   return (
     <>
       {/* ===== Top Heading ===== */}
-      <Header>
+      {/* <Header fixed>
+          <Search />
+          <div className='ml-auto flex items-center space-x-4'>
+            <ThemeSwitch />
+            <ProfileDropdown />
+          </div>
+        </Header> */}
+
+      <Header
+        fixed
+        className='flex h-16 items-center gap-3 bg-background p-4 shadow-none sm:gap-4'
+      >
         <Search />
         <div className='ml-auto flex items-center space-x-4'>
           <ThemeSwitch />
@@ -78,268 +96,273 @@ export default function Chats() {
         </div>
       </Header>
 
-      <Main fixed>
-        <section className='flex h-full gap-6'>
-          {/* Left Side */}
-          <div className='flex w-full flex-col gap-2 sm:w-56 lg:w-72 2xl:w-80'>
-            <div className='sticky top-0 z-10 -mx-4 bg-background px-4 pb-3 shadow-md sm:static sm:z-auto sm:mx-0 sm:p-0 sm:shadow-none'>
-              <div className='flex items-center justify-between py-2'>
-                <div className='flex gap-2'>
-                  <h1 className='text-2xl font-bold'>Inbox</h1>
-                  <IconMessages size={20} />
-                </div>
+      {/* <Main className='flex h-[calc(100vh-64px)] flex-col px-4 pb-4 pt-0'> */}
+      <Main className='fixed-main flex flex-grow flex-col overflow-hidden px-4 py-6 peer-[.header-fixed]/header:mt-16'>
+        <div className='flex h-full w-full'>
+          {/* Left Side - Inbox */}
+          <div className='flex h-full w-[320px] flex-none flex-col border-r border-border bg-background dark:bg-background'>
+            <div className='flex h-full flex-col'>
+              <div className='flex flex-col py-3 pr-4'>
+                <div className='flex items-center justify-between pb-2'>
+                  <div className='flex items-center gap-2'>
+                    <h1 className='text-2xl font-bold'>Inbox</h1>
+                    <IconMessages size={20} className='mt-1' />
+                  </div>
 
-                <Button
-                  size='icon'
-                  variant='ghost'
-                  onClick={() => setCreateConversationDialog(true)}
-                  className='rounded-lg'
-                >
-                  <IconEdit size={24} className='stroke-muted-foreground' />
-                </Button>
-              </div>
-
-              <label className='flex h-12 w-full items-center space-x-0 rounded-md border border-input pl-2 focus-within:outline-none focus-within:ring-1 focus-within:ring-ring'>
-                <IconSearch size={15} className='mr-2 stroke-slate-500' />
-                <span className='sr-only'>Search</span>
-                <input
-                  type='text'
-                  className='w-full flex-1 bg-inherit text-sm focus-visible:outline-none'
-                  placeholder='Search chat...'
-                  value={search}
-                  onChange={(e) => setSearch(e.target.value)}
-                />
-              </label>
-            </div>
-
-            <ScrollArea className='-mx-3 h-full p-3'>
-              {filteredChatList.map((chatUsr) => {
-                const { id, profile, username, messages, fullName } = chatUsr
-                const lastConvo = messages[0]
-                const lastMsg =
-                  lastConvo.sender === 'You'
-                    ? `You: ${lastConvo.message}`
-                    : lastConvo.message
-                return (
-                  <Fragment key={id}>
-                    <button
-                      type='button'
-                      className={cn(
-                        `-mx-1 flex w-full rounded-md px-2 py-2 text-left text-sm hover:bg-secondary/75`,
-                        selectedUser?.id === id && 'sm:bg-muted'
-                      )}
-                      onClick={() => {
-                        setSelectedUser(chatUsr)
-                        setMobileSelectedUser(chatUsr)
-                      }}
-                    >
-                      <div className='flex gap-2'>
-                        <Avatar>
-                          <AvatarImage src={profile} alt={username} />
-                          <AvatarFallback>{username}</AvatarFallback>
-                        </Avatar>
-                        <div>
-                          <span className='col-start-2 row-span-2 font-medium'>
-                            {fullName}
-                          </span>
-                          <span className='col-start-2 row-span-2 row-start-2 line-clamp-2 text-ellipsis text-muted-foreground'>
-                            {lastMsg}
-                          </span>
-                        </div>
-                      </div>
-                    </button>
-                    <Separator className='my-1' />
-                  </Fragment>
-                )
-              })}
-            </ScrollArea>
-          </div>
-
-          {/* Right Side */}
-          {selectedUser ? (
-            <div
-              className={cn(
-                'absolute inset-0 left-full z-50 hidden w-full flex-1 flex-col rounded-md border bg-primary-foreground shadow-sm transition-all duration-200 sm:static sm:z-auto sm:flex',
-                mobileSelectedUser && 'left-0 flex'
-              )}
-            >
-              {/* Top Part */}
-              <div className='mb-1 flex flex-none justify-between rounded-t-md bg-secondary p-4 shadow-lg'>
-                {/* Left */}
-                <div className='flex gap-3'>
                   <Button
                     size='icon'
                     variant='ghost'
-                    className='-ml-2 h-full sm:hidden'
-                    onClick={() => setMobileSelectedUser(null)}
+                    onClick={() => setCreateConversationDialog(true)}
+                    className='rounded-lg'
                   >
-                    <IconArrowLeft />
+                    <IconEdit size={20} className='stroke-muted-foreground' />
                   </Button>
-                  <div className='flex items-center gap-2 lg:gap-4'>
-                    <Avatar className='size-9 lg:size-11'>
-                      <AvatarImage
-                        src={selectedUser.profile}
-                        alt={selectedUser.username}
-                      />
-                      <AvatarFallback>{selectedUser.username}</AvatarFallback>
-                    </Avatar>
-                    <div>
-                      <span className='col-start-2 row-span-2 text-sm font-medium lg:text-base'>
-                        {selectedUser.fullName}
-                      </span>
-                      <span className='col-start-2 row-span-2 row-start-2 line-clamp-1 block max-w-32 text-ellipsis text-nowrap text-xs text-muted-foreground lg:max-w-none lg:text-sm'>
-                        {selectedUser.title}
-                      </span>
+                </div>
+
+                <div className='flex h-10 w-full items-center rounded-md border border-input bg-background pl-2 focus-within:outline-none focus-within:ring-1 focus-within:ring-ring dark:bg-muted/50'>
+                  <IconSearch
+                    size={15}
+                    className='mr-2 stroke-muted-foreground'
+                  />
+                  <input
+                    type='text'
+                    className='w-full flex-1 bg-transparent text-sm placeholder:text-muted-foreground focus-visible:outline-none'
+                    placeholder='Search chat...'
+                    value={search}
+                    onChange={(e) => setSearch(e.target.value)}
+                  />
+                </div>
+              </div>
+
+              <ScrollArea className='flex-1 pr-4'>
+                {filteredChatList.map((chatUsr) => {
+                  const { id, profile, username, messages, fullName } = chatUsr
+                  const lastConvo = messages[0]
+                  const lastMsg =
+                    lastConvo.sender === 'You'
+                      ? `You: ${lastConvo.message}`
+                      : lastConvo.message
+                  return (
+                    <div key={id} className='py-1'>
+                      <button
+                        type='button'
+                        className={cn(
+                          'flex w-full rounded-md px-2 py-2 text-left text-sm transition-colors hover:bg-muted/50',
+                          selectedUser?.id === id && 'bg-muted/70'
+                        )}
+                        onClick={() => {
+                          setSelectedUser(chatUsr)
+                          setMobileSelectedUser(chatUsr)
+                        }}
+                      >
+                        <div className='flex gap-2'>
+                          <Avatar>
+                            <AvatarImage src={profile} alt={username} />
+                            <AvatarFallback>{username}</AvatarFallback>
+                          </Avatar>
+                          <div className='flex flex-col'>
+                            <span className='line-clamp-1 font-medium'>
+                              {fullName}
+                            </span>
+                            <span className='line-clamp-1 text-xs text-muted-foreground'>
+                              {lastMsg}
+                            </span>
+                          </div>
+                        </div>
+                      </button>
+                      <Separator className='my-1' />
                     </div>
+                  )
+                })}
+              </ScrollArea>
+            </div>
+          </div>
+
+          {/* Right Side - Chat */}
+          <div className='relative flex h-full flex-1 bg-slate-50 dark:bg-slate-950/70'>
+            {selectedUser ? (
+              <div className='flex h-full w-full flex-col'>
+                {/* Top Part */}
+                <div className='flex flex-none justify-between border-b border-border bg-background p-3 dark:bg-background'>
+                  {/* Left */}
+                  <div className='flex gap-3'>
+                    <Button
+                      size='icon'
+                      variant='ghost'
+                      className='md:hidden'
+                      onClick={() => setMobileSelectedUser(null)}
+                    >
+                      <IconArrowLeft />
+                    </Button>
+                    <div className='flex items-center gap-3'>
+                      <Avatar>
+                        <AvatarImage
+                          src={selectedUser.profile}
+                          alt={selectedUser.username}
+                        />
+                        <AvatarFallback>{selectedUser.username}</AvatarFallback>
+                      </Avatar>
+                      <div>
+                        <span className='block text-sm font-medium'>
+                          {selectedUser.fullName}
+                        </span>
+                        <span className='block text-xs text-muted-foreground'>
+                          {selectedUser.title || 'Online'}
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Right */}
+                  <div className='flex items-center gap-2'>
+                    <Button
+                      size='icon'
+                      variant='ghost'
+                      className='hidden md:inline-flex'
+                    >
+                      <IconVideo
+                        size={18}
+                        className='stroke-muted-foreground'
+                      />
+                    </Button>
+                    <Button
+                      size='icon'
+                      variant='ghost'
+                      className='hidden md:inline-flex'
+                    >
+                      <IconPhone
+                        size={18}
+                        className='stroke-muted-foreground'
+                      />
+                    </Button>
+                    <Button size='icon' variant='ghost'>
+                      <IconDotsVertical
+                        size={18}
+                        className='stroke-muted-foreground'
+                      />
+                    </Button>
                   </div>
                 </div>
 
-                {/* Right */}
-                <div className='-mr-1 flex items-center gap-1 lg:gap-2'>
-                  <Button
-                    size='icon'
-                    variant='ghost'
-                    className='hidden size-8 rounded-full sm:inline-flex lg:size-10'
-                  >
-                    <IconVideo size={22} className='stroke-muted-foreground' />
-                  </Button>
-                  <Button
-                    size='icon'
-                    variant='ghost'
-                    className='hidden size-8 rounded-full sm:inline-flex lg:size-10'
-                  >
-                    <IconPhone size={22} className='stroke-muted-foreground' />
-                  </Button>
-                  <Button
-                    size='icon'
-                    variant='ghost'
-                    className='h-10 rounded-md sm:h-8 sm:w-4 lg:h-10 lg:w-6'
-                  >
-                    <IconDotsVertical className='stroke-muted-foreground sm:size-5' />
-                  </Button>
-                </div>
-              </div>
-
-              {/* Conversation */}
-              <div className='flex flex-1 flex-col gap-2 rounded-md px-4 pb-4 pt-0'>
-                <div className='flex size-full flex-1'>
-                  <div className='chat-text-container relative -mr-4 flex flex-1 flex-col overflow-y-hidden'>
-                    <div className='chat-flex flex h-40 w-full flex-grow flex-col-reverse justify-start gap-4 overflow-y-auto py-2 pb-4 pr-4'>
+                {/* Conversation */}
+                <div className='flex flex-1 flex-col overflow-hidden px-4'>
+                  <ScrollArea className='flex-1 py-4'>
+                    <div className='flex min-h-full flex-col justify-end'>
                       {currentMessage &&
                         Object.keys(currentMessage).map((key) => (
                           <Fragment key={key}>
+                            <div className='py-2 text-center text-xs text-muted-foreground'>
+                              {key}
+                            </div>
                             {currentMessage[key].map((msg, index) => (
                               <div
                                 key={`${msg.sender}-${msg.timestamp}-${index}`}
                                 className={cn(
-                                  'chat-box max-w-72 break-words px-3 py-2 shadow-lg',
+                                  'mb-4 max-w-[75%] px-4 py-2 shadow-sm',
                                   msg.sender === 'You'
-                                    ? 'self-end rounded-[16px_16px_0_16px] bg-primary/85 text-primary-foreground/75'
-                                    : 'self-start rounded-[16px_16px_16px_0] bg-secondary'
+                                    ? 'ml-auto rounded-2xl rounded-br-none bg-primary text-primary-foreground'
+                                    : 'mr-auto rounded-2xl rounded-bl-none bg-muted dark:bg-slate-800'
                                 )}
                               >
-                                {msg.message}{' '}
-                                <span
+                                <div>{msg.message}</div>
+                                <div
                                   className={cn(
-                                    'mt-1 block text-xs font-light italic text-muted-foreground',
-                                    msg.sender === 'You' && 'text-right'
+                                    'mt-1 text-xs',
+                                    msg.sender === 'You'
+                                      ? 'text-right text-primary-foreground/75'
+                                      : 'text-muted-foreground'
                                   )}
                                 >
                                   {format(msg.timestamp, 'h:mm a')}
-                                </span>
+                                </div>
                               </div>
                             ))}
-                            <div className='text-center text-xs'>{key}</div>
                           </Fragment>
                         ))}
                     </div>
-                  </div>
-                </div>
-                <form className='flex w-full flex-none gap-2'>
-                  <div className='flex flex-1 items-center gap-2 rounded-md border border-input px-2 py-1 focus-within:outline-none focus-within:ring-1 focus-within:ring-ring lg:gap-4'>
-                    <div className='space-x-1'>
-                      <Button
-                        size='icon'
-                        type='button'
-                        variant='ghost'
-                        className='h-8 rounded-md'
-                      >
-                        <IconPlus
-                          size={20}
-                          className='stroke-muted-foreground'
-                        />
-                      </Button>
-                      <Button
-                        size='icon'
-                        type='button'
-                        variant='ghost'
-                        className='hidden h-8 rounded-md lg:inline-flex'
-                      >
-                        <IconPhotoPlus
-                          size={20}
-                          className='stroke-muted-foreground'
-                        />
-                      </Button>
-                      <Button
-                        size='icon'
-                        type='button'
-                        variant='ghost'
-                        className='hidden h-8 rounded-md lg:inline-flex'
-                      >
-                        <IconPaperclip
-                          size={20}
-                          className='stroke-muted-foreground'
-                        />
-                      </Button>
-                    </div>
-                    <label className='flex-1'>
-                      <span className='sr-only'>Chat Text Box</span>
-                      <input
-                        type='text'
-                        placeholder='Type your messages...'
-                        className='h-8 w-full bg-inherit focus-visible:outline-none'
-                      />
-                    </label>
-                    <Button
-                      variant='ghost'
-                      size='icon'
-                      className='hidden sm:inline-flex'
+                  </ScrollArea>
+                  <div className='py-3'>
+                    <form
+                      className='flex flex-none gap-2'
+                      onSubmit={handleSendMessage}
                     >
-                      <IconSend size={20} />
-                    </Button>
+                      <div className='flex flex-1 items-center gap-2 rounded-md border border-input bg-background px-3 py-2 focus-within:ring-1 focus-within:ring-ring dark:bg-muted/20'>
+                        <div className='flex space-x-1'>
+                          <Button
+                            size='icon'
+                            type='button'
+                            variant='ghost'
+                            className='h-8 w-8'
+                          >
+                            <IconPlus
+                              size={18}
+                              className='stroke-muted-foreground'
+                            />
+                          </Button>
+                          <Button
+                            size='icon'
+                            type='button'
+                            variant='ghost'
+                            className='hidden h-8 w-8 md:inline-flex'
+                          >
+                            <IconPhotoPlus
+                              size={18}
+                              className='stroke-muted-foreground'
+                            />
+                          </Button>
+                          <Button
+                            size='icon'
+                            type='button'
+                            variant='ghost'
+                            className='hidden h-8 w-8 md:inline-flex'
+                          >
+                            <IconPaperclip
+                              size={18}
+                              className='stroke-muted-foreground'
+                            />
+                          </Button>
+                        </div>
+                        <input
+                          type='text'
+                          placeholder='Type your messages...'
+                          className='h-8 flex-1 bg-transparent text-sm placeholder:text-muted-foreground focus-visible:outline-none'
+                        />
+                        <Button
+                          variant='ghost'
+                          size='icon'
+                          type='submit'
+                          className='hidden h-8 w-8 md:inline-flex'
+                        >
+                          <IconSend size={18} />
+                        </Button>
+                      </div>
+                      <Button className='md:hidden' type='submit'>
+                        <IconSend size={16} className='mr-2' /> Send
+                      </Button>
+                    </form>
                   </div>
-                  <Button className='h-full sm:hidden'>
-                    <IconSend size={18} /> Send
+                </div>
+              </div>
+            ) : (
+              <div className='flex h-full w-full items-center justify-center'>
+                <div className='flex flex-col items-center space-y-6 text-center'>
+                  <div className='flex h-16 w-16 items-center justify-center rounded-full border-2 border-primary/20'>
+                    <IconMessages className='h-8 w-8 text-muted-foreground' />
+                  </div>
+                  <div className='space-y-2'>
+                    <h1 className='text-xl font-semibold'>Your messages</h1>
+                    <p className='text-sm text-muted-foreground'>
+                      Send a message to start a chat.
+                    </p>
+                  </div>
+                  <Button onClick={() => setCreateConversationDialog(true)}>
+                    Send message
                   </Button>
-                </form>
-              </div>
-            </div>
-          ) : (
-            <div
-              className={cn(
-                'absolute inset-0 left-full z-50 hidden w-full flex-1 flex-col justify-center rounded-md border bg-primary-foreground shadow-sm transition-all duration-200 sm:static sm:z-auto sm:flex'
-              )}
-            >
-              <div className='flex flex-col items-center space-y-6'>
-                <div className='flex h-16 w-16 items-center justify-center rounded-full border-2 border-white'>
-                  <IconMessages className='h-8 w-8' />
                 </div>
-                <div className='space-y-2 text-center'>
-                  <h1 className='text-xl font-semibold'>Your messages</h1>
-                  <p className='text-sm text-gray-400'>
-                    Send a message to start a chat.
-                  </p>
-                </div>
-                <Button
-                  className='bg-blue-500 px-6 text-white hover:bg-blue-600'
-                  onClick={() => setCreateConversationDialog(true)}
-                >
-                  Send message
-                </Button>
               </div>
-            </div>
-          )}
-        </section>
+            )}
+          </div>
+        </div>
         <NewChat
           users={users}
           onOpenChange={setCreateConversationDialog}

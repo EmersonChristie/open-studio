@@ -45,6 +45,11 @@
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
       "static/chunks/app/[tenant]/(dashboard)/chats/page.js"
+    ],
+    "/[tenant]/(dashboard)/users/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/chunks/app/[tenant]/(dashboard)/users/page.js"
     ]
   }
 }
