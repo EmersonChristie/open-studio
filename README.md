@@ -81,9 +81,37 @@ Contributions are welcome! Please feel free to submit a Pull Request.
 
 1. Fork the repository
 2. Create your feature branch (`git checkout -b feature/amazing-feature`)
-3. Commit your changes (`git commit -m 'Add some amazing feature'`)
-4. Push to the branch (`git push origin feature/amazing-feature`)
-5. Open a Pull Request
+3. Make your changes
+4. Commit your changes using the Commitizen CLI:
+   ```bash
+   pnpm commit
+   ```
+   This will launch an interactive prompt to create a conventional commit message
+5. Push to the branch (`git push origin feature/amazing-feature`)
+6. Open a Pull Request
+
+We use conventional commits to standardize our commit messages. The commit message should be structured as follows:
+
+```
+<type>[optional scope]: <description>
+
+[optional body]
+
+[optional footer(s)]
+```
+
+Types include:
+
+- `feat`: A new feature
+- `fix`: A bug fix
+- `docs`: Documentation only changes
+- `style`: Changes that do not affect the meaning of the code
+- `refactor`: A code change that neither fixes a bug nor adds a feature
+- `perf`: A code change that improves performance
+- `test`: Adding missing tests or correcting existing tests
+- `build`: Changes that affect the build system or external dependencies
+- `ci`: Changes to our CI configuration files and scripts
+- `chore`: Other changes that don't modify src or test files
 
 Please ensure your code follows our coding standards as documented in [ARCHITECTURE.md](./ARCHITECTURE.md).
 
