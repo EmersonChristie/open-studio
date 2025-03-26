@@ -82,13 +82,39 @@ Contributions are welcome! Please feel free to submit a Pull Request.
 1. Fork the repository
 2. Create your feature branch (`git checkout -b feature/amazing-feature`)
 3. Make your changes
-4. Commit your changes using the Commitizen CLI:
+4. Commit your changes using one of our commit methods:
+
+   **Option 1:** Interactive Commitizen CLI:
+
    ```bash
    pnpm commit
    ```
+
    This will launch an interactive prompt to create a conventional commit message
+
+   **Option 2:** Direct commit with conventional format:
+
+   ```bash
+   pnpm commit:direct "feat(scope): your commit message"
+   ```
+
+   This allows you to directly specify a pre-formatted conventional commit message
+
 5. Push to the branch (`git push origin feature/amazing-feature`)
 6. Open a Pull Request
+
+### Commit Workflow
+
+Our project uses Husky to manage Git hooks and enforce code quality:
+
+- **Pre-commit hook**: Runs linting and formatting before each commit
+
+  - Linting issues are reported but will not block your commit
+  - Code formatting is applied automatically
+
+- **Commit message hook**: Validates your commit message format
+  - Ensures conventional commit format is followed
+  - Provides feedback if the format is incorrect, but allows the commit to proceed
 
 We use conventional commits to standardize our commit messages. The commit message should be structured as follows:
 
@@ -113,7 +139,43 @@ Types include:
 - `ci`: Changes to our CI configuration files and scripts
 - `chore`: Other changes that don't modify src or test files
 
+Our project includes predefined scopes for better organization. Use them when relevant:
+
+- Feature scopes: `auth`, `ui`, `dashboard`, `settings`, `tasks`, `users`, `chats`, `apps`
+- Technical scopes: `api`, `layout`, `types`, `context`, `hooks`, `utils`, `config`, `router`, `store`, `i18n`, `deps`
+- Infrastructure scopes: `ci`, `build`, `deploy`, `docker`, `db`
+
 Please ensure your code follows our coding standards as documented in [ARCHITECTURE.md](./ARCHITECTURE.md).
+
+## Versioning and Releases
+
+This project uses [standard-version](https://github.com/conventional-changelog/standard-version) to automate versioning and CHANGELOG generation. The versioning is based on [Semantic Versioning](https://semver.org/) principles.
+
+### Creating a New Release
+
+To create a new release:
+
+```bash
+# Automatic versioning based on commit history
+pnpm release
+
+# Specify version type explicitly
+pnpm release:major  # For breaking changes (1.0.0 -> 2.0.0)
+pnpm release:minor  # For new features (1.0.0 -> 1.1.0)
+pnpm release:patch  # For bug fixes (1.0.0 -> 1.0.1)
+```
+
+This will:
+
+1. Bump the version in package.json according to your commits
+2. Update CHANGELOG.md with details of changes
+3. Create a version commit and tag
+
+After running the release command, push the tag and commits:
+
+```bash
+git push --follow-tags origin main
+```
 
 ## License
 

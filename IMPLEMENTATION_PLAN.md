@@ -153,6 +153,15 @@ Based on the current codebase, we've made the following progress:
   - [ ] Implement structured logging
   - [ ] Add Sentry or similar error tracking
 
+- [x] Git Workflow and Code Quality
+
+  - [x] Implement Husky for Git hooks
+  - [x] Configure commitlint for conventional commit validation
+  - [x] Add commitizen for interactive commit messages
+  - [x] Create non-interactive commit script option
+  - [x] Make pre-commit and commit-msg hooks more resilient
+  - [x] Configure standard-version for automated changelog generation
+
 - [ ] Performance Optimization
 
   - [ ] Implement proper image optimization

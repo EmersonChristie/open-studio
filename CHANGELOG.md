@@ -1,3 +1,27 @@
+# Changelog
+
+All notable changes to this project will be documented in this file.
+
+## [Unreleased]
+
+### Features
+
+- Added commitizen for conventional commits
+- Added standard-version for automated versioning and changelog generation
+- Added husky for git hooks
+- Added commitlint to enforce conventional commit messages
+- Enhanced commit workflow with resilient pre-commit and commit-msg hooks
+- Added direct commit method with `pnpm commit:direct` for non-interactive commits
+- Modified commit hooks to report issues but allow commits to proceed
+- Updated tenant route handling to support error pages
+
+### Fix
+
+- Fixed issues with sidebar navigation for error pages
+- Updated error pages to use appropriate HTTP status codes
+- Added missing `'use client'` directives to client components that use React hooks
+- Fixed type issues in sidebar utility functions
+
 ## v1.1.0 (2025-01-30)
 
 ### Feat
