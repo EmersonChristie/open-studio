@@ -1,3 +1,4 @@
+// Using CommonJS format for compatibility
 module.exports = {
   extends: ['@commitlint/config-conventional'],
   rules: {
@@ -30,6 +31,42 @@ module.exports = {
         'revert',
         'style',
         'test',
+      ],
+    ],
+    'scope-enum': [
+      2,
+      'always',
+      [
+        // Features & Components
+        'auth',
+        'ui',
+        'dashboard',
+        'settings',
+        'tasks',
+        'users',
+        'chats',
+        'apps',
+        
+        // Technical scopes
+        'api',
+        'layout',
+        'types',
+        'context',
+        'hooks',
+        'utils',
+        'config',
+        'router',
+        'store',
+        'i18n',
+        'deps',
+        'release',
+        
+        // Infrastructure
+        'ci',
+        'build',
+        'deploy',
+        'docker',
+        'db',
       ],
     ],
   },

@@ -41,15 +41,15 @@
     --chart-4: 346.8 77.2% 49.8%;
     --chart-5: 261.2 83.3% 58%;
 
-    /* Sidebar colors */
-    --sidebar-background: 222.2 84% 4.9%;
-    --sidebar-foreground: 210 40% 98%;
-    --sidebar-primary: 217.2 91.2% 59.8%;
-    --sidebar-primary-foreground: 222.2 47.4% 11.2%;
-    --sidebar-accent: 217.2 32.6% 17.5%;
-    --sidebar-accent-foreground: 210 40% 98%;
-    --sidebar-border: 217.2 32.6% 17.5%;
-    --sidebar-ring: 224.3 76.3% 48%;
+    /* Sidebar colors for light mode */
+    --sidebar-background: 210 40% 96.1%;
+    --sidebar-foreground: 222.2 47.4% 11.2%;
+    --sidebar-primary: 221.2 83.2% 53.3%;
+    --sidebar-primary-foreground: 210 40% 98%;
+    --sidebar-accent: 210 40% 92%;
+    --sidebar-accent-foreground: 222.2 47.4% 11.2%;
+    --sidebar-border: 214.3 31.8% 91.4%;
+    --sidebar-ring: 221.2 83.2% 53.3%;
   }
 
   .dark {
@@ -88,7 +88,7 @@
     --chart-4: 346.8 77.2% 49.8%;
     --chart-5: 261.2 83.3% 58%;
 
-    /* Sidebar colors remain the same in dark mode */
+    /* Sidebar colors for dark mode */
     --sidebar-background: 222.2 84% 4.9%;
     --sidebar-foreground: 210 40% 98%;
     --sidebar-primary: 217.2 91.2% 59.8%;
@@ -107,4 +107,23 @@
   body {
     @apply bg-background text-foreground;
   }
-} 
+}
+
+/* Remove colors from theme transitions - this will now just be for positioning */
+.transition-theme {
+  /* No longer transitioning colors */
+}
+
+/* Specific transition for movement/positioning */
+.transition-movement {
+  transition-property: all;
+  transition-duration: 300ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Specific transition for transforms only (like rotations) */
+.custom-transform-transition {
+  transition-property: transform;
+  transition-duration: 200ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}

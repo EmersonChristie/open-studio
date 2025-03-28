@@ -6,12 +6,18 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint",
+    "lint": "ESLINT_USE_FLAT_CONFIG=true eslint --config eslint.config.cjs .",
+    "lint:next": "next lint",
     "format:check": "prettier --check .",
     "format": "prettier --write .",
     "knip": "knip",
     "commit": "git-cz",
-    "prepare": "husky"
+    "commit:direct": "git commit -m",
+    "prepare": "husky",
+    "release": "standard-version",
+    "release:minor": "standard-version --release-as minor",
+    "release:patch": "standard-version --release-as patch",
+    "release:major": "standard-version --release-as major"
   },
   "config": {
     "commitizen": {
@@ -85,6 +91,7 @@
     "postcss": "^8.4.49",
     "prettier": "^3.4.2",
     "prettier-plugin-tailwindcss": "^0.6.9",
+    "standard-version": "^9.5.0",
     "tailwindcss": "^3.4.16",
     "typescript": "~5.7.2",
     "typescript-eslint": "^8.17.0"

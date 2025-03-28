@@ -1,7 +1,9 @@
 {
-  "/[tenant]/(dashboard)/dashboard/page": "app/[tenant]/(dashboard)/dashboard/page.js",
-  "/[tenant]/(dashboard)/users/page": "app/[tenant]/(dashboard)/users/page.js",
-  "/[tenant]/(dashboard)/help-center/page": "app/[tenant]/(dashboard)/help-center/page.js",
-  "/[tenant]/(dashboard)/settings/display/page": "app/[tenant]/(dashboard)/settings/display/page.js",
-  "/[tenant]/(dashboard)/settings/notifications/page": "app/[tenant]/(dashboard)/settings/notifications/page.js"
+  "/_not-found/page": "app/_not-found/page.js",
+  "/[tenant]/(dashboard)/tasks/page": "app/[tenant]/(dashboard)/tasks/page.js",
+  "/[tenant]/(dashboard)/settings/page": "app/[tenant]/(dashboard)/settings/page.js",
+  "/[tenant]/(dashboard)/settings/appearance/page": "app/[tenant]/(dashboard)/settings/appearance/page.js",
+  "/[tenant]/(dashboard)/settings/account/page": "app/[tenant]/(dashboard)/settings/account/page.js",
+  "/[tenant]/(dashboard)/settings/notifications/page": "app/[tenant]/(dashboard)/settings/notifications/page.js",
+  "/[tenant]/(dashboard)/settings/display/page": "app/[tenant]/(dashboard)/settings/display/page.js"
 }

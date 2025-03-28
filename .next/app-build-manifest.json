@@ -36,30 +36,15 @@
       "static/chunks/main-app.js",
       "static/chunks/app/_not-found/page.js"
     ],
-    "/not-found/page": [
+    "/(auth)/layout": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
-      "static/chunks/app/not-found/page.js"
+      "static/chunks/app/(auth)/layout.js"
     ],
-    "/error/page": [
+    "/(auth)/sign-in/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
-      "static/chunks/app/error/page.js"
-    ],
-    "/unauthorized/page": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/chunks/app/unauthorized/page.js"
-    ],
-    "/forbidden/page": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/chunks/app/forbidden/page.js"
-    ],
-    "/maintenance/page": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/chunks/app/maintenance/page.js"
+      "static/chunks/app/(auth)/sign-in/page.js"
     ],
     "/[tenant]/(dashboard)/settings/layout": [
       "static/chunks/webpack.js",
@@ -91,15 +76,10 @@
       "static/chunks/main-app.js",
       "static/chunks/app/[tenant]/(dashboard)/settings/display/page.js"
     ],
-    "/[tenant]/(dashboard)/help-center/page": [
+    "/[tenant]/(dashboard)/tasks/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
-      "static/chunks/app/[tenant]/(dashboard)/help-center/page.js"
-    ],
-    "/[tenant]/(dashboard)/users/page": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/chunks/app/[tenant]/(dashboard)/users/page.js"
+      "static/chunks/app/[tenant]/(dashboard)/tasks/page.js"
     ]
   }
 }

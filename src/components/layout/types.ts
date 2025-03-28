@@ -1,44 +1,52 @@
-import { LinkProps } from 'next/link'
+import { ReactNode } from 'react'
 
-interface User {
-  name: string
-  email: string
-  avatar: string
+// Icons are React components
+export type IconComponent = React.ComponentType<{
+  size?: number | string
+  className?: string
+}>
+
+// Base navigation item (shared properties)
+export interface NavItem {
+  title: string
+  url?: string
+  icon?: IconComponent
+  badge?: string | number
 }
 
-interface Team {
+// Navigation link (no children)
+export interface NavLink extends NavItem {
+  url: string
+}
+
+// Collapsible navigation item with children
+export interface NavCollapsible extends NavItem {
+  items: NavLink[]
+}
+
+// Navigation group
+export interface NavGroup {
+  title: string
+  items: Array<NavLink | NavCollapsible>
+}
+
+// Team type for team-switcher
+export interface Team {
   name: string
   logo: React.ElementType
   plan: string
 }
 
-interface BaseNavItem {
-  title: string
-  badge?: string
-  icon?: React.ElementType
+// User type for user information
+export interface User {
+  name: string
+  email: string
+  avatar: string
 }
 
-type NavLink = BaseNavItem & {
-  url: string
-  items?: never
-}
-
-type NavCollapsible = BaseNavItem & {
-  items: (BaseNavItem & { url: string })[]
-  url?: never
-}
-
-type NavItem = NavCollapsible | NavLink
-
-interface NavGroup {
-  title: string
-  items: NavItem[]
-}
-
-interface SidebarData {
-  user: User
-  teams: Team[]
+// Complete sidebar data structure
+export interface SidebarData {
   navGroups: NavGroup[]
+  teams: Team[]
+  user: User
 }
-
-export type { SidebarData, NavGroup, NavItem, NavCollapsible, NavLink }

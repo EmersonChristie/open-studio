@@ -1,9 +1,12 @@
+import { cn } from '@/lib/utils'
 import {
   Sidebar,
   SidebarContent,
   SidebarFooter,
   SidebarHeader,
   SidebarRail,
+  SidebarTrigger,
+  useSidebar,
 } from '@/components/ui/sidebar'
 import { NavGroup } from '@/components/layout/nav-group'
 import { NavUser } from '@/components/layout/nav-user'
@@ -16,26 +19,33 @@ interface AppSidebarProps extends React.ComponentProps<typeof Sidebar> {
   tenantId?: string
 }
 
-export function AppSidebar({ tenantId, ...props }: AppSidebarProps) {
+export function AppSidebar({ tenantId, className, ...props }: AppSidebarProps) {
+  const { state } = useSidebar()
+
   // Create sidebar data with tenant ID replaced in URLs
   const sidebarDataWithTenant = tenantId
     ? createSidebarDataWithTenant(sidebarData, tenantId)
     : sidebarData
 
   return (
-    <Sidebar collapsible='icon' variant='floating' {...props}>
+    <Sidebar
+      collapsible='icon'
+      variant='floating'
+      className={cn(className)}
+      {...props}
+    >
       <SidebarHeader>
         <TeamSwitcher teams={sidebarDataWithTenant.teams} />
       </SidebarHeader>
       <SidebarContent>
-        {sidebarDataWithTenant.navGroups.map((navGroupProps: NavGroupType) => (
-          <NavGroup key={navGroupProps.title} {...navGroupProps} />
+        {sidebarDataWithTenant.navGroups.map((group: NavGroupType) => (
+          <NavGroup key={group.title} {...group} />
         ))}
       </SidebarContent>
       <SidebarFooter>
         <NavUser user={sidebarDataWithTenant.user} />
       </SidebarFooter>
-      <SidebarRail />
+      <SidebarRail className='transition-movement' />
     </Sidebar>
   )
 }

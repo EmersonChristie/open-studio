@@ -14,7 +14,7 @@ export const metadata: Metadata = {
 }
 
 export default async function TenantIndexPage(props: PageProps) {
-  const params = await props.params;
+  const params = await props.params
   // Redirect from /[tenant] to /[tenant]/dashboard
   redirect(`/${params.tenant}/dashboard`)
 }

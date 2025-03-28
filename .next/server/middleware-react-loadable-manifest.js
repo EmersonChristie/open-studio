@@ -1,1 +1,1 @@
-self.__REACT_LOADABLE_MANIFEST="{}"
+self.__REACT_LOADABLE_MANIFEST="{\"app/(auth)/sign-in/sign-in-client.tsx -> @/features/auth/sign-in\":{\"id\":\"app/(auth)/sign-in/sign-in-client.tsx -> @/features/auth/sign-in\",\"files\":[\"static/chunks/_app-pages-browser_src_features_auth_sign-in_index_tsx.js\"]}}"
