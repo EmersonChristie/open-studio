@@ -14,6 +14,10 @@ All notable changes to this project will be documented in this file.
 - Added direct commit method with `pnpm commit:direct` for non-interactive commits
 - Modified commit hooks to report issues but allow commits to proceed
 - Updated tenant route handling to support error pages
+- Implemented database schema and PostgreSQL connection
+- Created database initialization script with custom enum types
+- Added Drizzle ORM integration with tenant isolation
+- Implemented tenant CRUD operations with proper error handling
 
 ### Fix
 
@@ -21,6 +25,9 @@ All notable changes to this project will be documented in this file.
 - Updated error pages to use appropriate HTTP status codes
 - Added missing `'use client'` directives to client components that use React hooks
 - Fixed type issues in sidebar utility functions
+- Resolved type compatibility issues in database services by using SQL template literals
+- Enhanced database health check function to support different result formats
+- Fixed circular dependency in CSS transition classes
 
 ## v1.1.0 (2025-01-30)
 

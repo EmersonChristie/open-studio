@@ -31,10 +31,35 @@
       "static/chunks/main-app.js",
       "static/chunks/app/[tenant]/(dashboard)/dashboard/page.js"
     ],
+    "/[tenant]/(dashboard)/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/chunks/app/[tenant]/(dashboard)/page.js"
+    ],
     "/_not-found/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
       "static/chunks/app/_not-found/page.js"
+    ],
+    "/[tenant]/(dashboard)/tasks/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/chunks/app/[tenant]/(dashboard)/tasks/page.js"
+    ],
+    "/[tenant]/(dashboard)/apps/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/chunks/app/[tenant]/(dashboard)/apps/page.js"
+    ],
+    "/[tenant]/(dashboard)/chats/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/chunks/app/[tenant]/(dashboard)/chats/page.js"
+    ],
+    "/[tenant]/(dashboard)/users/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/chunks/app/[tenant]/(dashboard)/users/page.js"
     ],
     "/(auth)/layout": [
       "static/chunks/webpack.js",
@@ -45,6 +70,11 @@
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
       "static/chunks/app/(auth)/sign-in/page.js"
+    ],
+    "/not-found/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/chunks/app/not-found/page.js"
     ],
     "/[tenant]/(dashboard)/settings/layout": [
       "static/chunks/webpack.js",
@@ -70,16 +100,6 @@
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
       "static/chunks/app/[tenant]/(dashboard)/settings/notifications/page.js"
-    ],
-    "/[tenant]/(dashboard)/settings/display/page": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/chunks/app/[tenant]/(dashboard)/settings/display/page.js"
-    ],
-    "/[tenant]/(dashboard)/tasks/page": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/chunks/app/[tenant]/(dashboard)/tasks/page.js"
     ]
   }
 }
