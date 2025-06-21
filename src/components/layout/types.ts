@@ -1,4 +1,5 @@
 import { ReactNode } from 'react'
+import { type Icon } from '@tabler/icons-react'
 
 // Icons are React components
 export type IconComponent = React.ComponentType<{
@@ -9,9 +10,10 @@ export type IconComponent = React.ComponentType<{
 // Base navigation item (shared properties)
 export interface NavItem {
   title: string
-  url?: string
-  icon?: IconComponent
-  badge?: string | number
+  url: string
+  icon?: Icon
+  badge?: string
+  items?: NavItem[]
 }
 
 // Navigation link (no children)
@@ -27,7 +29,7 @@ export interface NavCollapsible extends NavItem {
 // Navigation group
 export interface NavGroup {
   title: string
-  items: Array<NavLink | NavCollapsible>
+  items: NavItem[]
 }
 
 // Team type for team-switcher
@@ -47,6 +49,4 @@ export interface User {
 // Complete sidebar data structure
 export interface SidebarData {
   navGroups: NavGroup[]
-  teams: Team[]
-  user: User
 }

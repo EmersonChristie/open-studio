@@ -1,86 +1,78 @@
 'use client'
 
-import { useState } from 'react'
-import { IconAlertTriangle } from '@tabler/icons-react'
+import { useParams } from 'next/navigation'
 import { toast } from '@/hooks/use-toast'
-import { Alert, AlertDescription, AlertTitle } from '@/components/ui/alert'
-import { Input } from '@/components/ui/input'
-import { Label } from '@/components/ui/label'
-import { ConfirmDialog } from '@/components/confirm-dialog'
+import { Button } from '@/components/ui/button'
+import {
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogFooter,
+  DialogHeader,
+  DialogTitle,
+} from '@/components/ui/dialog'
 import { User } from '../data/schema'
 
 interface Props {
+  currentRow: User
   open: boolean
   onOpenChange: (open: boolean) => void
-  currentRow: User
 }
 
-export function UsersDeleteDialog({ open, onOpenChange, currentRow }: Props) {
-  const [value, setValue] = useState('')
+export function UsersDeleteDialog({ currentRow, open, onOpenChange }: Props) {
+  const params = useParams()
 
-  const handleDelete = () => {
-    if (value.trim() !== currentRow.username) return
+  async function onDelete() {
+    try {
+      const response = await fetch(`/api/${params.tenant}/users`, {
+        method: 'DELETE',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          userId: currentRow.clerkId,
+        }),
+      })
 
-    onOpenChange(false)
-    toast({
-      title: 'The following user has been deleted:',
-      description: (
-        <pre className='mt-2 w-[340px] rounded-md bg-slate-950 p-4'>
-          <code className='text-white'>
-            {JSON.stringify(currentRow, null, 2)}
-          </code>
-        </pre>
-      ),
-    })
+      if (!response.ok) {
+        throw new Error('Failed to remove user')
+      }
+
+      toast({
+        title: 'Success',
+        description: 'User removed successfully.',
+      })
+
+      onOpenChange(false)
+    } catch (error) {
+      console.error('Error removing user:', error)
+      toast({
+        title: 'Error',
+        description: 'Failed to remove user. Please try again.',
+        variant: 'destructive',
+      })
+    }
   }
 
   return (
-    <ConfirmDialog
-      open={open}
-      onOpenChange={onOpenChange}
-      handleConfirm={handleDelete}
-      disabled={value.trim() !== currentRow.username}
-      title={
-        <span className='text-destructive'>
-          <IconAlertTriangle
-            className='mr-1 inline-block stroke-destructive'
-            size={18}
-          />{' '}
-          Delete User
-        </span>
-      }
-      desc={
-        <div className='space-y-4'>
-          <p className='mb-2'>
-            Are you sure you want to delete{' '}
-            <span className='font-bold'>{currentRow.username}</span>?
-            <br />
-            This action will permanently remove the user with the role of{' '}
-            <span className='font-bold'>
-              {currentRow.role.toUpperCase()}
-            </span>{' '}
-            from the system. This cannot be undone.
-          </p>
-
-          <Label className='my-2'>
-            Username:
-            <Input
-              value={value}
-              onChange={(e) => setValue(e.target.value)}
-              placeholder='Enter username to confirm deletion.'
-            />
-          </Label>
-
-          <Alert variant='destructive'>
-            <AlertTitle>Warning!</AlertTitle>
-            <AlertDescription>
-              Please be carefull, this operation can not be rolled back.
-            </AlertDescription>
-          </Alert>
-        </div>
-      }
-      confirmText='Delete'
-      destructive
-    />
+    <Dialog open={open} onOpenChange={onOpenChange}>
+      <DialogContent>
+        <DialogHeader>
+          <DialogTitle>Remove User</DialogTitle>
+          <DialogDescription>
+            Are you sure you want to remove{' '}
+            {currentRow.name || currentRow.email}? This action cannot be undone.
+          </DialogDescription>
+        </DialogHeader>
+        <DialogFooter>
+          <Button variant='outline' onClick={() => onOpenChange(false)}>
+            Cancel
+          </Button>
+          <Button variant='destructive' onClick={onDelete}>
+            Remove
+          </Button>
+        </DialogFooter>
+      </DialogContent>
+    </Dialog>
   )
 }

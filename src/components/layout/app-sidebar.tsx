@@ -35,7 +35,7 @@ export function AppSidebar({ tenantId, className, ...props }: AppSidebarProps) {
       {...props}
     >
       <SidebarHeader>
-        <TeamSwitcher teams={sidebarDataWithTenant.teams} />
+        <TeamSwitcher />
       </SidebarHeader>
       <SidebarContent>
         {sidebarDataWithTenant.navGroups.map((group: NavGroupType) => (
@@ -43,7 +43,7 @@ export function AppSidebar({ tenantId, className, ...props }: AppSidebarProps) {
         ))}
       </SidebarContent>
       <SidebarFooter>
-        <NavUser user={sidebarDataWithTenant.user} />
+        <NavUser />
       </SidebarFooter>
       <SidebarRail className='transition-movement' />
     </Sidebar>

@@ -21,15 +21,25 @@
       "static/chunks/main-app.js",
       "static/chunks/app/not-found.js"
     ],
+    "/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/chunks/app/page.js"
+    ],
+    "/api/webhooks/clerk/route": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/chunks/app/api/webhooks/clerk/route.js"
+    ],
+    "/setup-organization/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/chunks/app/setup-organization/page.js"
+    ],
     "/[tenant]/(dashboard)/layout": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
       "static/chunks/app/[tenant]/(dashboard)/layout.js"
-    ],
-    "/[tenant]/(dashboard)/dashboard/page": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/chunks/app/[tenant]/(dashboard)/dashboard/page.js"
     ],
     "/[tenant]/(dashboard)/page": [
       "static/chunks/webpack.js",
@@ -41,21 +51,6 @@
       "static/chunks/main-app.js",
       "static/chunks/app/_not-found/page.js"
     ],
-    "/[tenant]/(dashboard)/tasks/page": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/chunks/app/[tenant]/(dashboard)/tasks/page.js"
-    ],
-    "/[tenant]/(dashboard)/apps/page": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/chunks/app/[tenant]/(dashboard)/apps/page.js"
-    ],
-    "/[tenant]/(dashboard)/chats/page": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/chunks/app/[tenant]/(dashboard)/chats/page.js"
-    ],
     "/[tenant]/(dashboard)/users/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
@@ -66,15 +61,10 @@
       "static/chunks/main-app.js",
       "static/chunks/app/(auth)/layout.js"
     ],
-    "/(auth)/sign-in/page": [
+    "/(auth)/sign-in/[[...rest]]/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
-      "static/chunks/app/(auth)/sign-in/page.js"
-    ],
-    "/not-found/page": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/chunks/app/not-found/page.js"
+      "static/chunks/app/(auth)/sign-in/[[...rest]]/page.js"
     ],
     "/[tenant]/(dashboard)/settings/layout": [
       "static/chunks/webpack.js",
@@ -86,20 +76,30 @@
       "static/chunks/main-app.js",
       "static/chunks/app/[tenant]/(dashboard)/settings/page.js"
     ],
-    "/[tenant]/(dashboard)/settings/account/page": [
+    "/api/create-organization/route": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
-      "static/chunks/app/[tenant]/(dashboard)/settings/account/page.js"
+      "static/chunks/app/api/create-organization/route.js"
     ],
-    "/[tenant]/(dashboard)/settings/appearance/page": [
+    "/api/sync-organization/route": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
-      "static/chunks/app/[tenant]/(dashboard)/settings/appearance/page.js"
+      "static/chunks/app/api/sync-organization/route.js"
     ],
-    "/[tenant]/(dashboard)/settings/notifications/page": [
+    "/[tenant]/(dashboard)/dashboard/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
-      "static/chunks/app/[tenant]/(dashboard)/settings/notifications/page.js"
+      "static/chunks/app/[tenant]/(dashboard)/dashboard/page.js"
+    ],
+    "/[tenant]/(dashboard)/tasks/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/chunks/app/[tenant]/(dashboard)/tasks/page.js"
+    ],
+    "/api/[tenant]/users/route": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/chunks/app/api/[tenant]/users/route.js"
     ]
   }
 }

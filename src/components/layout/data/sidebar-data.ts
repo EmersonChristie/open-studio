@@ -19,39 +19,16 @@ import {
   IconUserOff,
   IconUsers,
 } from '@tabler/icons-react'
-import { AudioWaveform, Command, GalleryVerticalEnd } from 'lucide-react'
 import { type SidebarData } from '../types'
 
 export const sidebarData: SidebarData = {
-  user: {
-    name: 'satnaing',
-    email: 'satnaingdev@gmail.com',
-    avatar: '/avatars/shadcn.jpg',
-  },
-  teams: [
-    {
-      name: 'Shadcn Admin',
-      logo: Command,
-      plan: 'Vite + ShadcnUI',
-    },
-    {
-      name: 'Acme Inc',
-      logo: GalleryVerticalEnd,
-      plan: 'Enterprise',
-    },
-    {
-      name: 'Acme Corp.',
-      logo: AudioWaveform,
-      plan: 'Startup',
-    },
-  ],
   navGroups: [
     {
       title: 'General',
       items: [
         {
           title: 'Dashboard',
-          url: '/[tenant]/dashboard',
+          url: '/[tenant]',
           icon: IconLayoutDashboard,
         },
         {
@@ -82,6 +59,7 @@ export const sidebarData: SidebarData = {
       items: [
         {
           title: 'Auth',
+          url: '/[tenant]/auth',
           icon: IconLockAccess,
           items: [
             {
@@ -104,6 +82,7 @@ export const sidebarData: SidebarData = {
         },
         {
           title: 'Errors',
+          url: '/[tenant]/errors',
           icon: IconBug,
           items: [
             {
@@ -140,6 +119,7 @@ export const sidebarData: SidebarData = {
       items: [
         {
           title: 'Settings',
+          url: '/[tenant]/settings',
           icon: IconSettings,
           items: [
             {

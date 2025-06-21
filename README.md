@@ -1,187 +1,169 @@
 # Open Studio
 
-A production-ready admin dashboard built with Next.js, shadcn/ui, and modern best practices.
+A modern, multi-tenant SaaS platform for art galleries built with Next.js 15, TypeScript, and PostgreSQL.
 
-## Features
+## 🎯 **Project Status**
 
-- 🚀 **Next.js 15** with App Router for server-side rendering, API routes, and server components
-- 🎨 **shadcn/ui** for beautifully designed, accessible UI components
-- 🔐 **Clerk Authentication** for secure user management
-- 📊 **Drizzle ORM** for type-safe database access
-- 🌐 **Internationalization** with next-intl
-- 📱 **Responsive Design** built with Tailwind CSS
-- 📈 **TanStack Query** for efficient data fetching and caching
-- 🧠 **Zustand** for simple and effective state management
-- 📝 **React Hook Form** with Zod validation for form handling
-- 🧪 **Vitest & Playwright** for comprehensive testing
-- 📊 **Sentry & Pino** for error tracking and logging
-- 📚 **Storybook** for component documentation
-- 🔍 **Bundle Analyzer** for optimizing bundle size
-- 🚢 **CI/CD** with GitHub Actions
+**Current Status**: ✅ **Functional MVP**
 
-## Getting Started
+- Authentication with Clerk (Google OAuth)
+- Multi-tenant architecture with organization isolation
+- PostgreSQL database with real-time webhook sync
+- Dynamic tenant-based routing
+- 3-tier subscription model implemented
 
-### Prerequisites
+## 📚 **Documentation**
 
-- Node.js 20.x or higher
-- npm or pnpm
+### **For Developers**
 
-### Installation
+📋 **[PROJECT_STATUS.md](./PROJECT_STATUS.md)** - Current progress, architecture overview, next steps, and development environment setup
+
+### **For AI Assistants**
+
+🤖 **[LLM_CONTEXT.md](./LLM_CONTEXT.md)** - Comprehensive technical context, patterns, and guidelines for maintaining project consistency
+
+### **Business Model**
+
+💰 **[BUSINESS_MODEL.md](./BUSINESS_MODEL.md)** - Subscription plans, pricing strategy, and feature breakdown
+
+### **Change History**
+
+📝 **[CHANGELOG.md](./CHANGELOG.md)** - Detailed history of all changes and releases
+
+## 🚀 **Quick Start**
+
+### **Prerequisites**
+
+- Node.js 18.18.0+ (Next.js 15 requirement)
+- PostgreSQL database
+- Clerk account with organization features
+
+### **Setup**
 
 ```bash
-# Clone the repository
-git clone https://github.com/yourusername/open-studio.git
+# Clone and install
+git clone <repository>
 cd open-studio
-
-# Install dependencies
-npm install
-# or
 pnpm install
 
-# Set up environment variables
-cp .env.example .env.local
-```
+# Environment setup
+cp .env.example .env
+# Add your database URL and Clerk keys
 
-### Development
+# Database setup
+npm run db:push
+npm run db:seed
 
-```bash
-# Run the development server
+# Start development
 npm run dev
-# or
-pnpm dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### **Environment Variables**
 
-### Building for Production
+```env
+DATABASE_URL=postgresql://...
+NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY=pk_test_...
+CLERK_SECRET_KEY=sk_test_...
+CLERK_WEBHOOK_SECRET=whsec_...
+```
+
+## 🏗️ **Architecture Overview**
+
+### **Tech Stack**
+
+- **Framework**: Next.js 15 (App Router)
+- **Language**: TypeScript
+- **Database**: PostgreSQL + Drizzle ORM
+- **Authentication**: Clerk (with Organizations)
+- **UI**: Tailwind CSS + shadcn/ui
+- **State**: Zustand + React Query
+
+### **Multi-Tenancy**
+
+- **Tenant Isolation**: Organization-based with database-level filtering
+- **Routing**: `/{tenant-slug}/feature` pattern
+- **Authentication**: Clerk organizations with webhook sync
+- **Data**: All tables include tenant filtering
+
+### **Authentication Flow**
+
+```
+Landing (/) → Sign-in/Sign-up → Setup Organization → Gallery Dashboard (/{slug})
+```
+
+## 🎨 **Features**
+
+### **✅ Implemented**
+
+- User authentication with Google OAuth
+- Multi-tenant gallery management
+- Organization creation and management
+- Real-time data synchronization
+- Subscription plan structure
+- Responsive UI with dark/light themes
+
+### **🚧 In Development**
+
+- Artwork inventory management
+- Artist profile system
+- Client relationship management
+- Sales pipeline tracking
+
+### **📋 Planned**
+
+- Exhibition management
+- Advanced reporting & analytics
+- API integrations
+- Mobile app
+
+## 💰 **Subscription Plans**
+
+- **🆓 Free**: 5 artworks, 1 user, testing ($0/month)
+- **🎨 Artist**: 100 artworks, 2 users, single artist ($19/month)
+- **🏛️ Gallery**: 500 artworks/gallery, unlimited users ($49/month + $39/additional gallery)
+
+## 🛠️ **Development**
+
+### **Key Commands**
 
 ```bash
-# Build the application
-npm run build
-# or
-pnpm build
-
-# Start the production server
-npm run start
-# or
-pnpm start
+npm run dev          # Start development server
+npm run build        # Build for production
+npm run db:push      # Push schema changes
+npm run db:studio    # Open database GUI
+npm run lint         # Run ESLint
+npm run type-check   # TypeScript checking
 ```
 
-## Project Structure
-
-The project follows a feature-based structure for better organization and scalability. See [ARCHITECTURE.md](./ARCHITECTURE.md) for detailed information about the project structure, coding styles, and best practices.
-
-## Implementation Plan
-
-Check out our [IMPLEMENTATION_PLAN.md](./IMPLEMENTATION_PLAN.md) for details on how we're enhancing the admin dashboard with production-ready features.
-
-## Contributing
-
-Contributions are welcome! Please feel free to submit a Pull Request.
-
-1. Fork the repository
-2. Create your feature branch (`git checkout -b feature/amazing-feature`)
-3. Make your changes
-4. Commit your changes using one of our commit methods:
-
-   **Option 1:** Interactive Commitizen CLI:
-
-   ```bash
-   pnpm commit
-   ```
-
-   This will launch an interactive prompt to create a conventional commit message
-
-   **Option 2:** Direct commit with conventional format:
-
-   ```bash
-   pnpm commit:direct "feat(scope): your commit message"
-   ```
-
-   This allows you to directly specify a pre-formatted conventional commit message
-
-5. Push to the branch (`git push origin feature/amazing-feature`)
-6. Open a Pull Request
-
-### Commit Workflow
-
-Our project uses Husky to manage Git hooks and enforce code quality:
-
-- **Pre-commit hook**: Runs linting and formatting before each commit
-
-  - Linting issues are reported but will not block your commit
-  - Code formatting is applied automatically
-
-- **Commit message hook**: Validates your commit message format
-  - Ensures conventional commit format is followed
-  - Provides feedback if the format is incorrect, but allows the commit to proceed
-
-We use conventional commits to standardize our commit messages. The commit message should be structured as follows:
+### **Project Structure**
 
 ```
-<type>[optional scope]: <description>
-
-[optional body]
-
-[optional footer(s)]
+src/
+├── app/                    # Next.js App Router
+│   ├── (auth)/            # Authentication pages
+│   ├── [tenant]/          # Tenant-specific routes
+│   └── api/webhooks/      # Webhook handlers
+├── components/            # Shared UI components
+├── features/              # Feature-based modules
+├── lib/                   # Core utilities
+│   ├── auth/              # Authentication logic
+│   ├── db/                # Database schema & services
+│   └── middleware/        # Request middleware
+└── context/               # React context providers
 ```
 
-Types include:
+## 🤝 **Contributing**
 
-- `feat`: A new feature
-- `fix`: A bug fix
-- `docs`: Documentation only changes
-- `style`: Changes that do not affect the meaning of the code
-- `refactor`: A code change that neither fixes a bug nor adds a feature
-- `perf`: A code change that improves performance
-- `test`: Adding missing tests or correcting existing tests
-- `build`: Changes that affect the build system or external dependencies
-- `ci`: Changes to our CI configuration files and scripts
-- `chore`: Other changes that don't modify src or test files
+1. Read [PROJECT_STATUS.md](./PROJECT_STATUS.md) for current priorities
+2. Check [LLM_CONTEXT.md](./LLM_CONTEXT.md) for technical guidelines
+3. Follow the established patterns for multi-tenancy
+4. Ensure proper TypeScript typing
+5. Test with multiple tenants
 
-Our project includes predefined scopes for better organization. Use them when relevant:
+## 📄 **License**
 
-- Feature scopes: `auth`, `ui`, `dashboard`, `settings`, `tasks`, `users`, `chats`, `apps`
-- Technical scopes: `api`, `layout`, `types`, `context`, `hooks`, `utils`, `config`, `router`, `store`, `i18n`, `deps`
-- Infrastructure scopes: `ci`, `build`, `deploy`, `docker`, `db`
+MIT License - see [LICENSE](./LICENSE) file for details.
 
-Please ensure your code follows our coding standards as documented in [ARCHITECTURE.md](./ARCHITECTURE.md).
+---
 
-## Versioning and Releases
-
-This project uses [standard-version](https://github.com/conventional-changelog/standard-version) to automate versioning and CHANGELOG generation. The versioning is based on [Semantic Versioning](https://semver.org/) principles.
-
-### Creating a New Release
-
-To create a new release:
-
-```bash
-# Automatic versioning based on commit history
-pnpm release
-
-# Specify version type explicitly
-pnpm release:major  # For breaking changes (1.0.0 -> 2.0.0)
-pnpm release:minor  # For new features (1.0.0 -> 1.1.0)
-pnpm release:patch  # For bug fixes (1.0.0 -> 1.0.1)
-```
-
-This will:
-
-1. Bump the version in package.json according to your commits
-2. Update CHANGELOG.md with details of changes
-3. Create a version commit and tag
-
-After running the release command, push the tag and commits:
-
-```bash
-git push --follow-tags origin main
-```
-
-## License
-
-This project is licensed under the MIT License - see the LICENSE file for details.
-
-## Acknowledgements
-
-- [shadcn-admin](https://github.com/satnaing/shadcn-admin) - Admin UI components and design
-- [Next.js Boilerplate](https://github.com/ixartz/Next-js-Boilerplate) - Production-ready features and patterns
+**Built for the art world** 🎨 **Powered by modern web technologies** ⚡

@@ -1,15 +1,15 @@
 'use client'
 
-import { z } from 'zod'
 import { useForm } from 'react-hook-form'
 import { zodResolver } from '@hookform/resolvers/zod'
+import { IconUser, IconUserCog, IconUserShield } from '@tabler/icons-react'
+import { useParams } from 'next/navigation'
 import { toast } from '@/hooks/use-toast'
 import { Button } from '@/components/ui/button'
 import {
   Dialog,
   DialogContent,
   DialogDescription,
-  DialogFooter,
   DialogHeader,
   DialogTitle,
 } from '@/components/ui/dialog'
@@ -23,70 +23,14 @@ import {
 } from '@/components/ui/form'
 import { Input } from '@/components/ui/input'
 import { ScrollArea } from '@/components/ui/scroll-area'
-import { PasswordInput } from '@/components/password-input'
-import { SelectDropdown } from '@/components/select-dropdown'
-import { userTypes } from '../data/data'
-import { User } from '../data/schema'
-
-const formSchema = z
-  .object({
-    firstName: z.string().min(1, { message: 'First Name is required.' }),
-    lastName: z.string().min(1, { message: 'Last Name is required.' }),
-    username: z.string().min(1, { message: 'Username is required.' }),
-    phoneNumber: z.string().min(1, { message: 'Phone number is required.' }),
-    email: z
-      .string()
-      .min(1, { message: 'Email is required.' })
-      .email({ message: 'Email is invalid.' }),
-    password: z.string().transform((pwd) => pwd.trim()),
-    role: z.string().min(1, { message: 'Role is required.' }),
-    confirmPassword: z.string().transform((pwd) => pwd.trim()),
-    isEdit: z.boolean(),
-  })
-  .superRefine(({ isEdit, password, confirmPassword }, ctx) => {
-    if (!isEdit || (isEdit && password !== '')) {
-      if (password === '') {
-        ctx.addIssue({
-          code: z.ZodIssueCode.custom,
-          message: 'Password is required.',
-          path: ['password'],
-        })
-      }
-
-      if (password.length < 8) {
-        ctx.addIssue({
-          code: z.ZodIssueCode.custom,
-          message: 'Password must be at least 8 characters long.',
-          path: ['password'],
-        })
-      }
-
-      if (!password.match(/[a-z]/)) {
-        ctx.addIssue({
-          code: z.ZodIssueCode.custom,
-          message: 'Password must contain at least one lowercase letter.',
-          path: ['password'],
-        })
-      }
-
-      if (!password.match(/\d/)) {
-        ctx.addIssue({
-          code: z.ZodIssueCode.custom,
-          message: 'Password must contain at least one number.',
-          path: ['password'],
-        })
-      }
-
-      if (password !== confirmPassword) {
-        ctx.addIssue({
-          code: z.ZodIssueCode.custom,
-          message: "Passwords don't match.",
-          path: ['confirmPassword'],
-        })
-      }
-    }
-  })
-type UserForm = z.infer<typeof formSchema>
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from '@/components/ui/select'
+import { User, userFormSchema, userRoleEnum } from '../data/schema'
 
 interface Props {
   currentRow?: User
@@ -94,44 +38,67 @@ interface Props {
   onOpenChange: (open: boolean) => void
 }
 
+const roleOptions = [
+  {
+    value: 'admin',
+    label: 'Admin',
+    icon: IconUserCog,
+    description: 'Elevated permissions in the organization',
+  },
+  {
+    value: 'member',
+    label: 'Member',
+    icon: IconUser,
+    description: 'Non-privileged permissions in the organization',
+  },
+]
+
 export function UsersActionDialog({ currentRow, open, onOpenChange }: Props) {
+  const params = useParams()
   const isEdit = !!currentRow
-  const form = useForm<UserForm>({
-    resolver: zodResolver(formSchema),
-    defaultValues: isEdit
-      ? {
-          ...currentRow,
-          password: '',
-          confirmPassword: '',
-          isEdit,
-        }
-      : {
-          firstName: '',
-          lastName: '',
-          username: '',
-          email: '',
-          role: '',
-          phoneNumber: '',
-          password: '',
-          confirmPassword: '',
-          isEdit,
-        },
+
+  const form = useForm({
+    resolver: zodResolver(userFormSchema),
+    defaultValues: {
+      firstName: currentRow?.firstName || '',
+      lastName: currentRow?.lastName || '',
+      email: currentRow?.email || '',
+      role: currentRow?.role || 'user',
+    },
   })
 
-  const onSubmit = (values: UserForm) => {
-    form.reset()
-    toast({
-      title: 'You submitted the following values:',
-      description: (
-        <pre className='mt-2 w-[340px] rounded-md bg-slate-950 p-4'>
-          <code className='text-white'>{JSON.stringify(values, null, 2)}</code>
-        </pre>
-      ),
-    })
-    onOpenChange(false)
-  }
+  async function onSubmit(data: any) {
+    try {
+      const response = await fetch(`/api/${params.tenant}/users`, {
+        method: isEdit ? 'PATCH' : 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          ...data,
+          userId: currentRow?.clerkId,
+        }),
+      })
 
-  const isPasswordTouched = !!form.formState.dirtyFields.password
+      if (!response.ok) {
+        throw new Error('Failed to save user')
+      }
+
+      toast({
+        title: 'Success',
+        description: `User ${isEdit ? 'updated' : 'created'} successfully.`,
+      })
+
+      onOpenChange(false)
+    } catch (error) {
+      console.error('Error saving user:', error)
+      toast({
+        title: 'Error',
+        description: 'Failed to save user. Please try again.',
+        variant: 'destructive',
+      })
+    }
+  }
 
   return (
     <Dialog
@@ -176,6 +143,7 @@ export function UsersActionDialog({ currentRow, open, onOpenChange }: Props) {
                   </FormItem>
                 )}
               />
+
               <FormField
                 control={form.control}
                 name='lastName'
@@ -196,25 +164,7 @@ export function UsersActionDialog({ currentRow, open, onOpenChange }: Props) {
                   </FormItem>
                 )}
               />
-              <FormField
-                control={form.control}
-                name='username'
-                render={({ field }) => (
-                  <FormItem className='grid grid-cols-6 items-center gap-x-4 gap-y-1 space-y-0'>
-                    <FormLabel className='col-span-2 text-right'>
-                      Username
-                    </FormLabel>
-                    <FormControl>
-                      <Input
-                        placeholder='john_doe'
-                        className='col-span-4'
-                        {...field}
-                      />
-                    </FormControl>
-                    <FormMessage className='col-span-4 col-start-3' />
-                  </FormItem>
-                )}
-              />
+
               <FormField
                 control={form.control}
                 name='email'
@@ -225,8 +175,10 @@ export function UsersActionDialog({ currentRow, open, onOpenChange }: Props) {
                     </FormLabel>
                     <FormControl>
                       <Input
-                        placeholder='john.doe@gmail.com'
+                        placeholder='john@example.com'
                         className='col-span-4'
+                        type='email'
+                        autoComplete='off'
                         {...field}
                       />
                     </FormControl>
@@ -234,25 +186,7 @@ export function UsersActionDialog({ currentRow, open, onOpenChange }: Props) {
                   </FormItem>
                 )}
               />
-              <FormField
-                control={form.control}
-                name='phoneNumber'
-                render={({ field }) => (
-                  <FormItem className='grid grid-cols-6 items-center gap-x-4 gap-y-1 space-y-0'>
-                    <FormLabel className='col-span-2 text-right'>
-                      Phone Number
-                    </FormLabel>
-                    <FormControl>
-                      <Input
-                        placeholder='+123456789'
-                        className='col-span-4'
-                        {...field}
-                      />
-                    </FormControl>
-                    <FormMessage className='col-span-4 col-start-3' />
-                  </FormItem>
-                )}
-              />
+
               <FormField
                 control={form.control}
                 name='role'
@@ -261,67 +195,53 @@ export function UsersActionDialog({ currentRow, open, onOpenChange }: Props) {
                     <FormLabel className='col-span-2 text-right'>
                       Role
                     </FormLabel>
-                    <SelectDropdown
-                      defaultValue={field.value}
+                    <Select
                       onValueChange={field.onChange}
-                      placeholder='Select a role'
-                      className='col-span-4'
-                      items={userTypes.map(({ label, value }) => ({
-                        label,
-                        value,
-                      }))}
-                    />
+                      defaultValue={field.value}
+                    >
+                      <FormControl>
+                        <SelectTrigger className='col-span-4'>
+                          <SelectValue placeholder='Select a role' />
+                        </SelectTrigger>
+                      </FormControl>
+                      <SelectContent>
+                        {roleOptions.map((role) => (
+                          <SelectItem
+                            key={role.value}
+                            value={role.value}
+                            className='flex items-center gap-2'
+                          >
+                            <div className='flex items-center gap-2'>
+                              <role.icon size={16} />
+                              <div>
+                                <div>{role.label}</div>
+                                <div className='text-xs text-muted-foreground'>
+                                  {role.description}
+                                </div>
+                              </div>
+                            </div>
+                          </SelectItem>
+                        ))}
+                      </SelectContent>
+                    </Select>
                     <FormMessage className='col-span-4 col-start-3' />
                   </FormItem>
                 )}
               />
-              <FormField
-                control={form.control}
-                name='password'
-                render={({ field }) => (
-                  <FormItem className='grid grid-cols-6 items-center gap-x-4 gap-y-1 space-y-0'>
-                    <FormLabel className='col-span-2 text-right'>
-                      Password
-                    </FormLabel>
-                    <FormControl>
-                      <PasswordInput
-                        placeholder='e.g., S3cur3P@ssw0rd'
-                        className='col-span-4'
-                        {...field}
-                      />
-                    </FormControl>
-                    <FormMessage className='col-span-4 col-start-3' />
-                  </FormItem>
-                )}
-              />
-              <FormField
-                control={form.control}
-                name='confirmPassword'
-                render={({ field }) => (
-                  <FormItem className='grid grid-cols-6 items-center gap-x-4 gap-y-1 space-y-0'>
-                    <FormLabel className='col-span-2 text-right'>
-                      Confirm Password
-                    </FormLabel>
-                    <FormControl>
-                      <PasswordInput
-                        disabled={!isPasswordTouched}
-                        placeholder='e.g., S3cur3P@ssw0rd'
-                        className='col-span-4'
-                        {...field}
-                      />
-                    </FormControl>
-                    <FormMessage className='col-span-4 col-start-3' />
-                  </FormItem>
-                )}
-              />
+
+              <div className='flex justify-end gap-2 pt-4'>
+                <Button
+                  type='button'
+                  variant='outline'
+                  onClick={() => onOpenChange(false)}
+                >
+                  Cancel
+                </Button>
+                <Button type='submit'>Save</Button>
+              </div>
             </form>
           </Form>
         </ScrollArea>
-        <DialogFooter>
-          <Button type='submit' form='user-form'>
-            Save changes
-          </Button>
-        </DialogFooter>
       </DialogContent>
     </Dialog>
   )

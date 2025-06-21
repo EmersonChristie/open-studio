@@ -1,5 +1,4 @@
 import { Metadata } from 'next'
-import { redirect } from 'next/navigation'
 import Dashboard from '@/features/dashboard'
 
 interface PageProps {
@@ -13,10 +12,10 @@ export const metadata: Metadata = {
   description: 'Gallery management dashboard',
 }
 
-export default async function TenantIndexPage(props: PageProps) {
+export default async function TenantDashboardPage(props: PageProps) {
   const params = await props.params
-  // Redirect from /[tenant] to /[tenant]/dashboard
-  redirect(`/${params.tenant}/dashboard`)
+
+  return <Dashboard />
 }
 
 function DashboardCard({

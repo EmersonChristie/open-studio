@@ -1,15 +1,13 @@
-import { z } from 'zod'
 import { useForm } from 'react-hook-form'
 import { zodResolver } from '@hookform/resolvers/zod'
-import { IconMailPlus, IconSend } from '@tabler/icons-react'
+import { IconUser, IconUserCog, IconUserShield } from '@tabler/icons-react'
+import { useParams } from 'next/navigation'
 import { toast } from '@/hooks/use-toast'
 import { Button } from '@/components/ui/button'
 import {
   Dialog,
-  DialogClose,
   DialogContent,
   DialogDescription,
-  DialogFooter,
   DialogHeader,
   DialogTitle,
 } from '@/components/ui/dialog'
@@ -22,42 +20,76 @@ import {
   FormMessage,
 } from '@/components/ui/form'
 import { Input } from '@/components/ui/input'
-import { Textarea } from '@/components/ui/textarea'
-import { SelectDropdown } from '@/components/select-dropdown'
-import { userTypes } from '../data/data'
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from '@/components/ui/select'
+import { userFormSchema, userRoleEnum } from '../data/schema'
 
-const formSchema = z.object({
-  email: z
-    .string()
-    .min(1, { message: 'Email is required.' })
-    .email({ message: 'Email is invalid.' }),
-  role: z.string().min(1, { message: 'Role is required.' }),
-  desc: z.string().optional(),
-})
-type UserInviteForm = z.infer<typeof formSchema>
+const roleOptions = [
+  {
+    value: 'admin',
+    label: 'Admin',
+    icon: IconUserCog,
+    description: 'Elevated permissions in the organization',
+  },
+  {
+    value: 'member',
+    label: 'Member',
+    icon: IconUser,
+    description: 'Non-privileged permissions in the organization',
+  },
+]
 
-interface Props {
+export function UsersInviteDialog({
+  open,
+  onOpenChange,
+}: {
   open: boolean
   onOpenChange: (open: boolean) => void
-}
+}) {
+  const params = useParams()
 
-export function UsersInviteDialog({ open, onOpenChange }: Props) {
-  const form = useForm<UserInviteForm>({
-    resolver: zodResolver(formSchema),
-    defaultValues: { email: '', role: '', desc: '' },
+  const form = useForm({
+    resolver: zodResolver(userFormSchema),
+    defaultValues: {
+      email: '',
+      role: 'user',
+    },
   })
 
-  const onSubmit = (values: UserInviteForm) => {
-    form.reset()
-    toast({
-      title: 'You submitted the following values:',
-      description: (
-        <pre className='mt-2 w-[340px] rounded-md bg-slate-950 p-4'>
-          <code className='text-white'>{JSON.stringify(values, null, 2)}</code>
-        </pre>
-      ),
-    })
-    onOpenChange(false)
+  async function onSubmit(data: any) {
+    try {
+      const response = await fetch(`/api/${params.tenant}/users/invite`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(data),
+      })
+
+      if (!response.ok) {
+        throw new Error('Failed to invite user')
+      }
+
+      toast({
+        title: 'Success',
+        description: 'Invitation sent successfully.',
+      })
+
+      form.reset()
+      onOpenChange(false)
+    } catch (error) {
+      console.error('Error inviting user:', error)
+      toast({
+        title: 'Error',
+        description: 'Failed to send invitation. Please try again.',
+        variant: 'destructive',
+      })
+    }
   }
 
   return (
@@ -68,19 +100,17 @@ export function UsersInviteDialog({ open, onOpenChange }: Props) {
         onOpenChange(state)
       }}
     >
-      <DialogContent className='sm:max-w-md'>
+      <DialogContent className='sm:max-w-lg'>
         <DialogHeader className='text-left'>
-          <DialogTitle className='flex items-center gap-2'>
-            <IconMailPlus /> Invite User
-          </DialogTitle>
+          <DialogTitle>Invite User</DialogTitle>
           <DialogDescription>
-            Invite new user to join your team by sending them an email
-            invitation. Assign a role to define their access level.
+            Send an invitation to join your organization. The user will receive
+            an email with instructions.
           </DialogDescription>
         </DialogHeader>
         <Form {...form}>
           <form
-            id='user-invite-form'
+            id='invite-form'
             onSubmit={form.handleSubmit(onSubmit)}
             className='space-y-4'
           >
@@ -92,8 +122,9 @@ export function UsersInviteDialog({ open, onOpenChange }: Props) {
                   <FormLabel>Email</FormLabel>
                   <FormControl>
                     <Input
+                      placeholder='john@example.com'
                       type='email'
-                      placeholder='eg: john.doe@gmail.com'
+                      autoComplete='off'
                       {...field}
                     />
                   </FormControl>
@@ -101,52 +132,59 @@ export function UsersInviteDialog({ open, onOpenChange }: Props) {
                 </FormItem>
               )}
             />
+
             <FormField
               control={form.control}
               name='role'
               render={({ field }) => (
-                <FormItem className='space-y-1'>
+                <FormItem>
                   <FormLabel>Role</FormLabel>
-                  <SelectDropdown
-                    defaultValue={field.value}
+                  <Select
                     onValueChange={field.onChange}
-                    placeholder='Select a role'
-                    items={userTypes.map(({ label, value }) => ({
-                      label,
-                      value,
-                    }))}
-                  />
+                    defaultValue={field.value}
+                  >
+                    <FormControl>
+                      <SelectTrigger>
+                        <SelectValue placeholder='Select a role' />
+                      </SelectTrigger>
+                    </FormControl>
+                    <SelectContent>
+                      {roleOptions.map((role) => (
+                        <SelectItem
+                          key={role.value}
+                          value={role.value}
+                          className='flex items-center gap-2'
+                        >
+                          <div className='flex items-center gap-2'>
+                            <role.icon size={16} />
+                            <div>
+                              <div>{role.label}</div>
+                              <div className='text-xs text-muted-foreground'>
+                                {role.description}
+                              </div>
+                            </div>
+                          </div>
+                        </SelectItem>
+                      ))}
+                    </SelectContent>
+                  </Select>
                   <FormMessage />
                 </FormItem>
               )}
             />
-            <FormField
-              control={form.control}
-              name='desc'
-              render={({ field }) => (
-                <FormItem className=''>
-                  <FormLabel>Description (optional)</FormLabel>
-                  <FormControl>
-                    <Textarea
-                      className='resize-none'
-                      placeholder='Add a personal note to your invitation (optional)'
-                      {...field}
-                    />
-                  </FormControl>
-                  <FormMessage />
-                </FormItem>
-              )}
-            />
+
+            <div className='flex justify-end gap-2 pt-4'>
+              <Button
+                type='button'
+                variant='outline'
+                onClick={() => onOpenChange(false)}
+              >
+                Cancel
+              </Button>
+              <Button type='submit'>Send Invitation</Button>
+            </div>
           </form>
         </Form>
-        <DialogFooter className='gap-y-2'>
-          <DialogClose asChild>
-            <Button variant='outline'>Cancel</Button>
-          </DialogClose>
-          <Button type='submit' form='user-invite-form'>
-            Invite <IconSend />
-          </Button>
-        </DialogFooter>
       </DialogContent>
     </Dialog>
   )

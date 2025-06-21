@@ -16,11 +16,16 @@ import { tenants } from './tenants'
  */
 export const users = pgTable('users', {
   id: serial('id').primaryKey(),
+  clerkId: varchar('clerk_id', { length: 255 }).unique(),
   email: varchar('email', { length: 255 }).notNull().unique(),
   emailVerified: boolean('email_verified').default(false),
+  firstName: varchar('first_name', { length: 255 }),
+  lastName: varchar('last_name', { length: 255 }),
   name: varchar('name', { length: 255 }),
   password: varchar('password', { length: 255 }),
   avatarUrl: varchar('avatar_url', { length: 255 }),
+  profileImageUrl: varchar('profile_image_url', { length: 255 }),
+  role: userRoleEnum('role').default('user'),
   isActive: boolean('is_active').default(true),
   lastLoginAt: timestamp('last_login_at'),
   ...timestamps,
@@ -31,12 +36,8 @@ export const users = pgTable('users', {
  */
 export const userTenants = pgTable('user_tenants', {
   id: serial('id').primaryKey(),
-  userId: serial('user_id')
-    .references(() => users.id)
-    .notNull(),
-  tenantId: serial('tenant_id')
-    .references(() => tenants.id)
-    .notNull(),
+  userId: varchar('user_id', { length: 255 }).notNull(),
+  tenantId: varchar('tenant_id', { length: 255 }).notNull(),
   role: userRoleEnum('role').notNull(),
   isDefault: boolean('is_default').default(false),
   permissions: json('permissions').$type<string[]>(),

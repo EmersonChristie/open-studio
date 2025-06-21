@@ -1,19 +1,17 @@
-'use client'
-
-import React from 'react'
-import { useTenant } from '@/context/tenant-context'
+import { Metadata } from 'next'
 import Dashboard from '@/features/dashboard'
 
-export default function DashboardPage() {
-  const { tenant, isLoading } = useTenant()
+export const metadata: Metadata = {
+  title: 'Dashboard',
+  description: 'Gallery dashboard overview',
+}
 
-  if (isLoading) {
-    return (
-      <div className='flex min-h-[50vh] items-center justify-center'>
-        <div className='text-xl font-medium'>Loading tenant information...</div>
-      </div>
-    )
+interface PageProps {
+  params: {
+    tenant: string
   }
+}
 
+export default function DashboardPage({ params }: PageProps) {
   return <Dashboard />
 }

@@ -11,16 +11,6 @@ const nextConfig = {
   poweredByHeader: false,
   // Improve output tracing for better production deployments
   output: 'standalone',
-  // Configure redirects
-  async redirects() {
-    return [
-      {
-        source: '/',
-        destination: '/demo-gallery/dashboard', // Default redirect to demo gallery
-        permanent: false,
-      },
-    ]
-  },
   // Configure headers
   async headers() {
     return [

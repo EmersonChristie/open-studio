@@ -4,7 +4,7 @@ import { NextRequest, NextResponse } from 'next/server'
  * Extract tenant from request URL
  * This handles tenant resolution from the URL path
  */
-export function extractTenantFromRequest(request: NextRequest): string {
+export function extractTenantFromRequest(request: NextRequest): string | null {
   const url = request.nextUrl
   const pathParts = url.pathname.split('/')
 
@@ -15,14 +15,15 @@ export function extractTenantFromRequest(request: NextRequest): string {
     if (
       !pathParts[1].startsWith('_') &&
       pathParts[1] !== 'api' &&
-      pathParts[1] !== 'favicon.ico'
+      pathParts[1] !== 'favicon.ico' &&
+      pathParts[1] !== 'setup-organization'
     ) {
       return pathParts[1]
     }
   }
 
-  // Default tenant for home page or other non-tenant routes
-  return 'demo-gallery'
+  // Return null if no valid tenant found
+  return null
 }
 
 /**
@@ -36,6 +37,7 @@ export function withTenant(request: NextRequest) {
     request.nextUrl.pathname.startsWith('/_next') ||
     request.nextUrl.pathname.startsWith('/api') ||
     request.nextUrl.pathname === '/favicon.ico' ||
+    request.nextUrl.pathname === '/setup-organization' ||
     // Error pages
     request.nextUrl.pathname === '/error' ||
     request.nextUrl.pathname === '/not-found' ||
@@ -48,13 +50,17 @@ export function withTenant(request: NextRequest) {
 
   const tenant = extractTenantFromRequest(request)
 
-  // Add tenant to request headers for server components
-  const requestHeaders = new Headers(request.headers)
-  requestHeaders.set('x-tenant', tenant)
+  // Only add tenant header if we found a valid tenant
+  if (tenant) {
+    const requestHeaders = new Headers(request.headers)
+    requestHeaders.set('x-tenant', tenant)
 
-  return NextResponse.next({
-    request: {
-      headers: requestHeaders,
-    },
-  })
+    return NextResponse.next({
+      request: {
+        headers: requestHeaders,
+      },
+    })
+  }
+
+  return NextResponse.next()
 }

@@ -15,11 +15,8 @@ export default {
   schema: './src/lib/db/schema/*.ts',
   out: './src/lib/db/migrations',
   dialect: 'postgresql',
-  // @ts-ignore - Ignoring type issues with Drizzle config
-  // Using postgres driver which may not be properly typed in the current version
-  driver: 'postgres',
   dbCredentials: {
-    connectionString,
+    url: connectionString,
   },
   // Print all statements
   verbose: true,

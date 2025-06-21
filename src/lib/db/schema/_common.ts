@@ -28,6 +28,29 @@ export const userRoleEnum = pgEnum('user_role', [
   'artist',
   'client',
   'guest',
+  'user',
+])
+
+/**
+ * Subscription plan enum
+ */
+export const subscriptionPlanEnum = pgEnum('subscription_plan', [
+  'free',
+  'artist',
+  'gallery',
+])
+
+/**
+ * Subscription status enum
+ */
+export const subscriptionStatusEnum = pgEnum('subscription_status', [
+  'active',
+  'canceled',
+  'past_due',
+  'unpaid',
+  'trialing',
+  'incomplete',
+  'incomplete_expired',
 ])
 
 /**

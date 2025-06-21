@@ -1,5 +1,210 @@
 {
-  "node": {},
+  "node": {
+    "7f02ec5920db39edf4d8c8a9bbcbef8406ae3bb438": {
+      "workers": {
+        "app/page": {
+          "moduleId": "(rsc)/./node_modules/.pnpm/next@15.2.0_react-dom@19.0.0_react@19.0.0/node_modules/next/dist/build/webpack/loaders/next-flight-action-entry-loader.js?actions=%5B%5B%22%2FUsers%2Femersonchristie%2FEmerson%20Studio%2Fopen-studio-workspace%2Fopen-studio%2Fnode_modules%2F%40clerk%2Fnextjs%2Fdist%2Fesm%2Fapp-router%2Fkeyless-actions.js%22%2C%5B%7B%22id%22%3A%227f02ec5920db39edf4d8c8a9bbcbef8406ae3bb438%22%2C%22exportedName%22%3A%22syncKeylessConfigAction%22%7D%2C%7B%22id%22%3A%227f710c7d19f8219105f126118c57db96cd310dcd6c%22%2C%22exportedName%22%3A%22deleteKeylessAction%22%7D%2C%7B%22id%22%3A%227fb6fc9fbaeeb30a3d7e5331ba3578284e36d25947%22%2C%22exportedName%22%3A%22createOrReadKeylessAction%22%7D%5D%5D%5D&__client_imported__=!",
+          "async": false
+        },
+        "app/setup-organization/page": {
+          "moduleId": "(rsc)/./node_modules/.pnpm/next@15.2.0_react-dom@19.0.0_react@19.0.0/node_modules/next/dist/build/webpack/loaders/next-flight-action-entry-loader.js?actions=%5B%5B%22%2FUsers%2Femersonchristie%2FEmerson%20Studio%2Fopen-studio-workspace%2Fopen-studio%2Fnode_modules%2F%40clerk%2Fnextjs%2Fdist%2Fesm%2Fapp-router%2Fkeyless-actions.js%22%2C%5B%7B%22id%22%3A%227f02ec5920db39edf4d8c8a9bbcbef8406ae3bb438%22%2C%22exportedName%22%3A%22syncKeylessConfigAction%22%7D%2C%7B%22id%22%3A%227f710c7d19f8219105f126118c57db96cd310dcd6c%22%2C%22exportedName%22%3A%22deleteKeylessAction%22%7D%2C%7B%22id%22%3A%227fb6fc9fbaeeb30a3d7e5331ba3578284e36d25947%22%2C%22exportedName%22%3A%22createOrReadKeylessAction%22%7D%5D%5D%5D&__client_imported__=!",
+          "async": false
+        },
+        "app/[tenant]/(dashboard)/page": {
+          "moduleId": "(rsc)/./node_modules/.pnpm/next@15.2.0_react-dom@19.0.0_react@19.0.0/node_modules/next/dist/build/webpack/loaders/next-flight-action-entry-loader.js?actions=%5B%5B%22%2FUsers%2Femersonchristie%2FEmerson%20Studio%2Fopen-studio-workspace%2Fopen-studio%2Fnode_modules%2F%40clerk%2Fnextjs%2Fdist%2Fesm%2Fapp-router%2Fkeyless-actions.js%22%2C%5B%7B%22id%22%3A%227f02ec5920db39edf4d8c8a9bbcbef8406ae3bb438%22%2C%22exportedName%22%3A%22syncKeylessConfigAction%22%7D%2C%7B%22id%22%3A%227f710c7d19f8219105f126118c57db96cd310dcd6c%22%2C%22exportedName%22%3A%22deleteKeylessAction%22%7D%2C%7B%22id%22%3A%227fb6fc9fbaeeb30a3d7e5331ba3578284e36d25947%22%2C%22exportedName%22%3A%22createOrReadKeylessAction%22%7D%5D%5D%5D&__client_imported__=!",
+          "async": false
+        },
+        "app/_not-found/page": {
+          "moduleId": "(rsc)/./node_modules/.pnpm/next@15.2.0_react-dom@19.0.0_react@19.0.0/node_modules/next/dist/build/webpack/loaders/next-flight-action-entry-loader.js?actions=%5B%5B%22%2FUsers%2Femersonchristie%2FEmerson%20Studio%2Fopen-studio-workspace%2Fopen-studio%2Fnode_modules%2F%40clerk%2Fnextjs%2Fdist%2Fesm%2Fapp-router%2Fkeyless-actions.js%22%2C%5B%7B%22id%22%3A%227f02ec5920db39edf4d8c8a9bbcbef8406ae3bb438%22%2C%22exportedName%22%3A%22syncKeylessConfigAction%22%7D%2C%7B%22id%22%3A%227f710c7d19f8219105f126118c57db96cd310dcd6c%22%2C%22exportedName%22%3A%22deleteKeylessAction%22%7D%2C%7B%22id%22%3A%227fb6fc9fbaeeb30a3d7e5331ba3578284e36d25947%22%2C%22exportedName%22%3A%22createOrReadKeylessAction%22%7D%5D%5D%5D&__client_imported__=!",
+          "async": false
+        },
+        "app/[tenant]/(dashboard)/users/page": {
+          "moduleId": "(rsc)/./node_modules/.pnpm/next@15.2.0_react-dom@19.0.0_react@19.0.0/node_modules/next/dist/build/webpack/loaders/next-flight-action-entry-loader.js?actions=%5B%5B%22%2FUsers%2Femersonchristie%2FEmerson%20Studio%2Fopen-studio-workspace%2Fopen-studio%2Fnode_modules%2F%40clerk%2Fnextjs%2Fdist%2Fesm%2Fapp-router%2Fkeyless-actions.js%22%2C%5B%7B%22id%22%3A%227f02ec5920db39edf4d8c8a9bbcbef8406ae3bb438%22%2C%22exportedName%22%3A%22syncKeylessConfigAction%22%7D%2C%7B%22id%22%3A%227f710c7d19f8219105f126118c57db96cd310dcd6c%22%2C%22exportedName%22%3A%22deleteKeylessAction%22%7D%2C%7B%22id%22%3A%227fb6fc9fbaeeb30a3d7e5331ba3578284e36d25947%22%2C%22exportedName%22%3A%22createOrReadKeylessAction%22%7D%5D%5D%5D&__client_imported__=!",
+          "async": false
+        },
+        "app/(auth)/sign-in/[[...rest]]/page": {
+          "moduleId": "(rsc)/./node_modules/.pnpm/next@15.2.0_react-dom@19.0.0_react@19.0.0/node_modules/next/dist/build/webpack/loaders/next-flight-action-entry-loader.js?actions=%5B%5B%22%2FUsers%2Femersonchristie%2FEmerson%20Studio%2Fopen-studio-workspace%2Fopen-studio%2Fnode_modules%2F%40clerk%2Fnextjs%2Fdist%2Fesm%2Fapp-router%2Fkeyless-actions.js%22%2C%5B%7B%22id%22%3A%227f02ec5920db39edf4d8c8a9bbcbef8406ae3bb438%22%2C%22exportedName%22%3A%22syncKeylessConfigAction%22%7D%2C%7B%22id%22%3A%227f710c7d19f8219105f126118c57db96cd310dcd6c%22%2C%22exportedName%22%3A%22deleteKeylessAction%22%7D%2C%7B%22id%22%3A%227fb6fc9fbaeeb30a3d7e5331ba3578284e36d25947%22%2C%22exportedName%22%3A%22createOrReadKeylessAction%22%7D%5D%5D%5D&__client_imported__=!",
+          "async": false
+        },
+        "app/[tenant]/(dashboard)/settings/page": {
+          "moduleId": "(rsc)/./node_modules/.pnpm/next@15.2.0_react-dom@19.0.0_react@19.0.0/node_modules/next/dist/build/webpack/loaders/next-flight-action-entry-loader.js?actions=%5B%5B%22%2FUsers%2Femersonchristie%2FEmerson%20Studio%2Fopen-studio-workspace%2Fopen-studio%2Fnode_modules%2F%40clerk%2Fnextjs%2Fdist%2Fesm%2Fapp-router%2Fkeyless-actions.js%22%2C%5B%7B%22id%22%3A%227f02ec5920db39edf4d8c8a9bbcbef8406ae3bb438%22%2C%22exportedName%22%3A%22syncKeylessConfigAction%22%7D%2C%7B%22id%22%3A%227f710c7d19f8219105f126118c57db96cd310dcd6c%22%2C%22exportedName%22%3A%22deleteKeylessAction%22%7D%2C%7B%22id%22%3A%227fb6fc9fbaeeb30a3d7e5331ba3578284e36d25947%22%2C%22exportedName%22%3A%22createOrReadKeylessAction%22%7D%5D%5D%5D&__client_imported__=!",
+          "async": false
+        },
+        "app/[tenant]/(dashboard)/dashboard/page": {
+          "moduleId": "(rsc)/./node_modules/.pnpm/next@15.2.0_react-dom@19.0.0_react@19.0.0/node_modules/next/dist/build/webpack/loaders/next-flight-action-entry-loader.js?actions=%5B%5B%22%2FUsers%2Femersonchristie%2FEmerson%20Studio%2Fopen-studio-workspace%2Fopen-studio%2Fnode_modules%2F%40clerk%2Fnextjs%2Fdist%2Fesm%2Fapp-router%2Fkeyless-actions.js%22%2C%5B%7B%22id%22%3A%227f02ec5920db39edf4d8c8a9bbcbef8406ae3bb438%22%2C%22exportedName%22%3A%22syncKeylessConfigAction%22%7D%2C%7B%22id%22%3A%227f710c7d19f8219105f126118c57db96cd310dcd6c%22%2C%22exportedName%22%3A%22deleteKeylessAction%22%7D%2C%7B%22id%22%3A%227fb6fc9fbaeeb30a3d7e5331ba3578284e36d25947%22%2C%22exportedName%22%3A%22createOrReadKeylessAction%22%7D%5D%5D%5D&__client_imported__=!",
+          "async": false
+        },
+        "app/[tenant]/(dashboard)/tasks/page": {
+          "moduleId": "(rsc)/./node_modules/.pnpm/next@15.2.0_react-dom@19.0.0_react@19.0.0/node_modules/next/dist/build/webpack/loaders/next-flight-action-entry-loader.js?actions=%5B%5B%22%2FUsers%2Femersonchristie%2FEmerson%20Studio%2Fopen-studio-workspace%2Fopen-studio%2Fnode_modules%2F%40clerk%2Fnextjs%2Fdist%2Fesm%2Fapp-router%2Fkeyless-actions.js%22%2C%5B%7B%22id%22%3A%227f02ec5920db39edf4d8c8a9bbcbef8406ae3bb438%22%2C%22exportedName%22%3A%22syncKeylessConfigAction%22%7D%2C%7B%22id%22%3A%227f710c7d19f8219105f126118c57db96cd310dcd6c%22%2C%22exportedName%22%3A%22deleteKeylessAction%22%7D%2C%7B%22id%22%3A%227fb6fc9fbaeeb30a3d7e5331ba3578284e36d25947%22%2C%22exportedName%22%3A%22createOrReadKeylessAction%22%7D%5D%5D%5D&__client_imported__=!",
+          "async": false
+        }
+      },
+      "layer": {
+        "app/page": "rsc",
+        "app/setup-organization/page": "rsc",
+        "app/[tenant]/(dashboard)/page": "rsc",
+        "app/_not-found/page": "rsc",
+        "app/[tenant]/(dashboard)/users/page": "rsc",
+        "app/(auth)/sign-in/[[...rest]]/page": "rsc",
+        "app/[tenant]/(dashboard)/settings/page": "rsc",
+        "app/[tenant]/(dashboard)/dashboard/page": "rsc",
+        "app/[tenant]/(dashboard)/tasks/page": "rsc"
+      }
+    },
+    "7f710c7d19f8219105f126118c57db96cd310dcd6c": {
+      "workers": {
+        "app/page": {
+          "moduleId": "(rsc)/./node_modules/.pnpm/next@15.2.0_react-dom@19.0.0_react@19.0.0/node_modules/next/dist/build/webpack/loaders/next-flight-action-entry-loader.js?actions=%5B%5B%22%2FUsers%2Femersonchristie%2FEmerson%20Studio%2Fopen-studio-workspace%2Fopen-studio%2Fnode_modules%2F%40clerk%2Fnextjs%2Fdist%2Fesm%2Fapp-router%2Fkeyless-actions.js%22%2C%5B%7B%22id%22%3A%227f02ec5920db39edf4d8c8a9bbcbef8406ae3bb438%22%2C%22exportedName%22%3A%22syncKeylessConfigAction%22%7D%2C%7B%22id%22%3A%227f710c7d19f8219105f126118c57db96cd310dcd6c%22%2C%22exportedName%22%3A%22deleteKeylessAction%22%7D%2C%7B%22id%22%3A%227fb6fc9fbaeeb30a3d7e5331ba3578284e36d25947%22%2C%22exportedName%22%3A%22createOrReadKeylessAction%22%7D%5D%5D%5D&__client_imported__=!",
+          "async": false
+        },
+        "app/setup-organization/page": {
+          "moduleId": "(rsc)/./node_modules/.pnpm/next@15.2.0_react-dom@19.0.0_react@19.0.0/node_modules/next/dist/build/webpack/loaders/next-flight-action-entry-loader.js?actions=%5B%5B%22%2FUsers%2Femersonchristie%2FEmerson%20Studio%2Fopen-studio-workspace%2Fopen-studio%2Fnode_modules%2F%40clerk%2Fnextjs%2Fdist%2Fesm%2Fapp-router%2Fkeyless-actions.js%22%2C%5B%7B%22id%22%3A%227f02ec5920db39edf4d8c8a9bbcbef8406ae3bb438%22%2C%22exportedName%22%3A%22syncKeylessConfigAction%22%7D%2C%7B%22id%22%3A%227f710c7d19f8219105f126118c57db96cd310dcd6c%22%2C%22exportedName%22%3A%22deleteKeylessAction%22%7D%2C%7B%22id%22%3A%227fb6fc9fbaeeb30a3d7e5331ba3578284e36d25947%22%2C%22exportedName%22%3A%22createOrReadKeylessAction%22%7D%5D%5D%5D&__client_imported__=!",
+          "async": false
+        },
+        "app/[tenant]/(dashboard)/page": {
+          "moduleId": "(rsc)/./node_modules/.pnpm/next@15.2.0_react-dom@19.0.0_react@19.0.0/node_modules/next/dist/build/webpack/loaders/next-flight-action-entry-loader.js?actions=%5B%5B%22%2FUsers%2Femersonchristie%2FEmerson%20Studio%2Fopen-studio-workspace%2Fopen-studio%2Fnode_modules%2F%40clerk%2Fnextjs%2Fdist%2Fesm%2Fapp-router%2Fkeyless-actions.js%22%2C%5B%7B%22id%22%3A%227f02ec5920db39edf4d8c8a9bbcbef8406ae3bb438%22%2C%22exportedName%22%3A%22syncKeylessConfigAction%22%7D%2C%7B%22id%22%3A%227f710c7d19f8219105f126118c57db96cd310dcd6c%22%2C%22exportedName%22%3A%22deleteKeylessAction%22%7D%2C%7B%22id%22%3A%227fb6fc9fbaeeb30a3d7e5331ba3578284e36d25947%22%2C%22exportedName%22%3A%22createOrReadKeylessAction%22%7D%5D%5D%5D&__client_imported__=!",
+          "async": false
+        },
+        "app/_not-found/page": {
+          "moduleId": "(rsc)/./node_modules/.pnpm/next@15.2.0_react-dom@19.0.0_react@19.0.0/node_modules/next/dist/build/webpack/loaders/next-flight-action-entry-loader.js?actions=%5B%5B%22%2FUsers%2Femersonchristie%2FEmerson%20Studio%2Fopen-studio-workspace%2Fopen-studio%2Fnode_modules%2F%40clerk%2Fnextjs%2Fdist%2Fesm%2Fapp-router%2Fkeyless-actions.js%22%2C%5B%7B%22id%22%3A%227f02ec5920db39edf4d8c8a9bbcbef8406ae3bb438%22%2C%22exportedName%22%3A%22syncKeylessConfigAction%22%7D%2C%7B%22id%22%3A%227f710c7d19f8219105f126118c57db96cd310dcd6c%22%2C%22exportedName%22%3A%22deleteKeylessAction%22%7D%2C%7B%22id%22%3A%227fb6fc9fbaeeb30a3d7e5331ba3578284e36d25947%22%2C%22exportedName%22%3A%22createOrReadKeylessAction%22%7D%5D%5D%5D&__client_imported__=!",
+          "async": false
+        },
+        "app/[tenant]/(dashboard)/users/page": {
+          "moduleId": "(rsc)/./node_modules/.pnpm/next@15.2.0_react-dom@19.0.0_react@19.0.0/node_modules/next/dist/build/webpack/loaders/next-flight-action-entry-loader.js?actions=%5B%5B%22%2FUsers%2Femersonchristie%2FEmerson%20Studio%2Fopen-studio-workspace%2Fopen-studio%2Fnode_modules%2F%40clerk%2Fnextjs%2Fdist%2Fesm%2Fapp-router%2Fkeyless-actions.js%22%2C%5B%7B%22id%22%3A%227f02ec5920db39edf4d8c8a9bbcbef8406ae3bb438%22%2C%22exportedName%22%3A%22syncKeylessConfigAction%22%7D%2C%7B%22id%22%3A%227f710c7d19f8219105f126118c57db96cd310dcd6c%22%2C%22exportedName%22%3A%22deleteKeylessAction%22%7D%2C%7B%22id%22%3A%227fb6fc9fbaeeb30a3d7e5331ba3578284e36d25947%22%2C%22exportedName%22%3A%22createOrReadKeylessAction%22%7D%5D%5D%5D&__client_imported__=!",
+          "async": false
+        },
+        "app/(auth)/sign-in/[[...rest]]/page": {
+          "moduleId": "(rsc)/./node_modules/.pnpm/next@15.2.0_react-dom@19.0.0_react@19.0.0/node_modules/next/dist/build/webpack/loaders/next-flight-action-entry-loader.js?actions=%5B%5B%22%2FUsers%2Femersonchristie%2FEmerson%20Studio%2Fopen-studio-workspace%2Fopen-studio%2Fnode_modules%2F%40clerk%2Fnextjs%2Fdist%2Fesm%2Fapp-router%2Fkeyless-actions.js%22%2C%5B%7B%22id%22%3A%227f02ec5920db39edf4d8c8a9bbcbef8406ae3bb438%22%2C%22exportedName%22%3A%22syncKeylessConfigAction%22%7D%2C%7B%22id%22%3A%227f710c7d19f8219105f126118c57db96cd310dcd6c%22%2C%22exportedName%22%3A%22deleteKeylessAction%22%7D%2C%7B%22id%22%3A%227fb6fc9fbaeeb30a3d7e5331ba3578284e36d25947%22%2C%22exportedName%22%3A%22createOrReadKeylessAction%22%7D%5D%5D%5D&__client_imported__=!",
+          "async": false
+        },
+        "app/[tenant]/(dashboard)/settings/page": {
+          "moduleId": "(rsc)/./node_modules/.pnpm/next@15.2.0_react-dom@19.0.0_react@19.0.0/node_modules/next/dist/build/webpack/loaders/next-flight-action-entry-loader.js?actions=%5B%5B%22%2FUsers%2Femersonchristie%2FEmerson%20Studio%2Fopen-studio-workspace%2Fopen-studio%2Fnode_modules%2F%40clerk%2Fnextjs%2Fdist%2Fesm%2Fapp-router%2Fkeyless-actions.js%22%2C%5B%7B%22id%22%3A%227f02ec5920db39edf4d8c8a9bbcbef8406ae3bb438%22%2C%22exportedName%22%3A%22syncKeylessConfigAction%22%7D%2C%7B%22id%22%3A%227f710c7d19f8219105f126118c57db96cd310dcd6c%22%2C%22exportedName%22%3A%22deleteKeylessAction%22%7D%2C%7B%22id%22%3A%227fb6fc9fbaeeb30a3d7e5331ba3578284e36d25947%22%2C%22exportedName%22%3A%22createOrReadKeylessAction%22%7D%5D%5D%5D&__client_imported__=!",
+          "async": false
+        },
+        "app/[tenant]/(dashboard)/dashboard/page": {
+          "moduleId": "(rsc)/./node_modules/.pnpm/next@15.2.0_react-dom@19.0.0_react@19.0.0/node_modules/next/dist/build/webpack/loaders/next-flight-action-entry-loader.js?actions=%5B%5B%22%2FUsers%2Femersonchristie%2FEmerson%20Studio%2Fopen-studio-workspace%2Fopen-studio%2Fnode_modules%2F%40clerk%2Fnextjs%2Fdist%2Fesm%2Fapp-router%2Fkeyless-actions.js%22%2C%5B%7B%22id%22%3A%227f02ec5920db39edf4d8c8a9bbcbef8406ae3bb438%22%2C%22exportedName%22%3A%22syncKeylessConfigAction%22%7D%2C%7B%22id%22%3A%227f710c7d19f8219105f126118c57db96cd310dcd6c%22%2C%22exportedName%22%3A%22deleteKeylessAction%22%7D%2C%7B%22id%22%3A%227fb6fc9fbaeeb30a3d7e5331ba3578284e36d25947%22%2C%22exportedName%22%3A%22createOrReadKeylessAction%22%7D%5D%5D%5D&__client_imported__=!",
+          "async": false
+        },
+        "app/[tenant]/(dashboard)/tasks/page": {
+          "moduleId": "(rsc)/./node_modules/.pnpm/next@15.2.0_react-dom@19.0.0_react@19.0.0/node_modules/next/dist/build/webpack/loaders/next-flight-action-entry-loader.js?actions=%5B%5B%22%2FUsers%2Femersonchristie%2FEmerson%20Studio%2Fopen-studio-workspace%2Fopen-studio%2Fnode_modules%2F%40clerk%2Fnextjs%2Fdist%2Fesm%2Fapp-router%2Fkeyless-actions.js%22%2C%5B%7B%22id%22%3A%227f02ec5920db39edf4d8c8a9bbcbef8406ae3bb438%22%2C%22exportedName%22%3A%22syncKeylessConfigAction%22%7D%2C%7B%22id%22%3A%227f710c7d19f8219105f126118c57db96cd310dcd6c%22%2C%22exportedName%22%3A%22deleteKeylessAction%22%7D%2C%7B%22id%22%3A%227fb6fc9fbaeeb30a3d7e5331ba3578284e36d25947%22%2C%22exportedName%22%3A%22createOrReadKeylessAction%22%7D%5D%5D%5D&__client_imported__=!",
+          "async": false
+        }
+      },
+      "layer": {
+        "app/page": "rsc",
+        "app/setup-organization/page": "rsc",
+        "app/[tenant]/(dashboard)/page": "rsc",
+        "app/_not-found/page": "rsc",
+        "app/[tenant]/(dashboard)/users/page": "rsc",
+        "app/(auth)/sign-in/[[...rest]]/page": "rsc",
+        "app/[tenant]/(dashboard)/settings/page": "rsc",
+        "app/[tenant]/(dashboard)/dashboard/page": "rsc",
+        "app/[tenant]/(dashboard)/tasks/page": "rsc"
+      }
+    },
+    "7fb6fc9fbaeeb30a3d7e5331ba3578284e36d25947": {
+      "workers": {
+        "app/page": {
+          "moduleId": "(rsc)/./node_modules/.pnpm/next@15.2.0_react-dom@19.0.0_react@19.0.0/node_modules/next/dist/build/webpack/loaders/next-flight-action-entry-loader.js?actions=%5B%5B%22%2FUsers%2Femersonchristie%2FEmerson%20Studio%2Fopen-studio-workspace%2Fopen-studio%2Fnode_modules%2F%40clerk%2Fnextjs%2Fdist%2Fesm%2Fapp-router%2Fkeyless-actions.js%22%2C%5B%7B%22id%22%3A%227f02ec5920db39edf4d8c8a9bbcbef8406ae3bb438%22%2C%22exportedName%22%3A%22syncKeylessConfigAction%22%7D%2C%7B%22id%22%3A%227f710c7d19f8219105f126118c57db96cd310dcd6c%22%2C%22exportedName%22%3A%22deleteKeylessAction%22%7D%2C%7B%22id%22%3A%227fb6fc9fbaeeb30a3d7e5331ba3578284e36d25947%22%2C%22exportedName%22%3A%22createOrReadKeylessAction%22%7D%5D%5D%5D&__client_imported__=!",
+          "async": false
+        },
+        "app/setup-organization/page": {
+          "moduleId": "(rsc)/./node_modules/.pnpm/next@15.2.0_react-dom@19.0.0_react@19.0.0/node_modules/next/dist/build/webpack/loaders/next-flight-action-entry-loader.js?actions=%5B%5B%22%2FUsers%2Femersonchristie%2FEmerson%20Studio%2Fopen-studio-workspace%2Fopen-studio%2Fnode_modules%2F%40clerk%2Fnextjs%2Fdist%2Fesm%2Fapp-router%2Fkeyless-actions.js%22%2C%5B%7B%22id%22%3A%227f02ec5920db39edf4d8c8a9bbcbef8406ae3bb438%22%2C%22exportedName%22%3A%22syncKeylessConfigAction%22%7D%2C%7B%22id%22%3A%227f710c7d19f8219105f126118c57db96cd310dcd6c%22%2C%22exportedName%22%3A%22deleteKeylessAction%22%7D%2C%7B%22id%22%3A%227fb6fc9fbaeeb30a3d7e5331ba3578284e36d25947%22%2C%22exportedName%22%3A%22createOrReadKeylessAction%22%7D%5D%5D%5D&__client_imported__=!",
+          "async": false
+        },
+        "app/[tenant]/(dashboard)/page": {
+          "moduleId": "(rsc)/./node_modules/.pnpm/next@15.2.0_react-dom@19.0.0_react@19.0.0/node_modules/next/dist/build/webpack/loaders/next-flight-action-entry-loader.js?actions=%5B%5B%22%2FUsers%2Femersonchristie%2FEmerson%20Studio%2Fopen-studio-workspace%2Fopen-studio%2Fnode_modules%2F%40clerk%2Fnextjs%2Fdist%2Fesm%2Fapp-router%2Fkeyless-actions.js%22%2C%5B%7B%22id%22%3A%227f02ec5920db39edf4d8c8a9bbcbef8406ae3bb438%22%2C%22exportedName%22%3A%22syncKeylessConfigAction%22%7D%2C%7B%22id%22%3A%227f710c7d19f8219105f126118c57db96cd310dcd6c%22%2C%22exportedName%22%3A%22deleteKeylessAction%22%7D%2C%7B%22id%22%3A%227fb6fc9fbaeeb30a3d7e5331ba3578284e36d25947%22%2C%22exportedName%22%3A%22createOrReadKeylessAction%22%7D%5D%5D%5D&__client_imported__=!",
+          "async": false
+        },
+        "app/_not-found/page": {
+          "moduleId": "(rsc)/./node_modules/.pnpm/next@15.2.0_react-dom@19.0.0_react@19.0.0/node_modules/next/dist/build/webpack/loaders/next-flight-action-entry-loader.js?actions=%5B%5B%22%2FUsers%2Femersonchristie%2FEmerson%20Studio%2Fopen-studio-workspace%2Fopen-studio%2Fnode_modules%2F%40clerk%2Fnextjs%2Fdist%2Fesm%2Fapp-router%2Fkeyless-actions.js%22%2C%5B%7B%22id%22%3A%227f02ec5920db39edf4d8c8a9bbcbef8406ae3bb438%22%2C%22exportedName%22%3A%22syncKeylessConfigAction%22%7D%2C%7B%22id%22%3A%227f710c7d19f8219105f126118c57db96cd310dcd6c%22%2C%22exportedName%22%3A%22deleteKeylessAction%22%7D%2C%7B%22id%22%3A%227fb6fc9fbaeeb30a3d7e5331ba3578284e36d25947%22%2C%22exportedName%22%3A%22createOrReadKeylessAction%22%7D%5D%5D%5D&__client_imported__=!",
+          "async": false
+        },
+        "app/[tenant]/(dashboard)/users/page": {
+          "moduleId": "(rsc)/./node_modules/.pnpm/next@15.2.0_react-dom@19.0.0_react@19.0.0/node_modules/next/dist/build/webpack/loaders/next-flight-action-entry-loader.js?actions=%5B%5B%22%2FUsers%2Femersonchristie%2FEmerson%20Studio%2Fopen-studio-workspace%2Fopen-studio%2Fnode_modules%2F%40clerk%2Fnextjs%2Fdist%2Fesm%2Fapp-router%2Fkeyless-actions.js%22%2C%5B%7B%22id%22%3A%227f02ec5920db39edf4d8c8a9bbcbef8406ae3bb438%22%2C%22exportedName%22%3A%22syncKeylessConfigAction%22%7D%2C%7B%22id%22%3A%227f710c7d19f8219105f126118c57db96cd310dcd6c%22%2C%22exportedName%22%3A%22deleteKeylessAction%22%7D%2C%7B%22id%22%3A%227fb6fc9fbaeeb30a3d7e5331ba3578284e36d25947%22%2C%22exportedName%22%3A%22createOrReadKeylessAction%22%7D%5D%5D%5D&__client_imported__=!",
+          "async": false
+        },
+        "app/(auth)/sign-in/[[...rest]]/page": {
+          "moduleId": "(rsc)/./node_modules/.pnpm/next@15.2.0_react-dom@19.0.0_react@19.0.0/node_modules/next/dist/build/webpack/loaders/next-flight-action-entry-loader.js?actions=%5B%5B%22%2FUsers%2Femersonchristie%2FEmerson%20Studio%2Fopen-studio-workspace%2Fopen-studio%2Fnode_modules%2F%40clerk%2Fnextjs%2Fdist%2Fesm%2Fapp-router%2Fkeyless-actions.js%22%2C%5B%7B%22id%22%3A%227f02ec5920db39edf4d8c8a9bbcbef8406ae3bb438%22%2C%22exportedName%22%3A%22syncKeylessConfigAction%22%7D%2C%7B%22id%22%3A%227f710c7d19f8219105f126118c57db96cd310dcd6c%22%2C%22exportedName%22%3A%22deleteKeylessAction%22%7D%2C%7B%22id%22%3A%227fb6fc9fbaeeb30a3d7e5331ba3578284e36d25947%22%2C%22exportedName%22%3A%22createOrReadKeylessAction%22%7D%5D%5D%5D&__client_imported__=!",
+          "async": false
+        },
+        "app/[tenant]/(dashboard)/settings/page": {
+          "moduleId": "(rsc)/./node_modules/.pnpm/next@15.2.0_react-dom@19.0.0_react@19.0.0/node_modules/next/dist/build/webpack/loaders/next-flight-action-entry-loader.js?actions=%5B%5B%22%2FUsers%2Femersonchristie%2FEmerson%20Studio%2Fopen-studio-workspace%2Fopen-studio%2Fnode_modules%2F%40clerk%2Fnextjs%2Fdist%2Fesm%2Fapp-router%2Fkeyless-actions.js%22%2C%5B%7B%22id%22%3A%227f02ec5920db39edf4d8c8a9bbcbef8406ae3bb438%22%2C%22exportedName%22%3A%22syncKeylessConfigAction%22%7D%2C%7B%22id%22%3A%227f710c7d19f8219105f126118c57db96cd310dcd6c%22%2C%22exportedName%22%3A%22deleteKeylessAction%22%7D%2C%7B%22id%22%3A%227fb6fc9fbaeeb30a3d7e5331ba3578284e36d25947%22%2C%22exportedName%22%3A%22createOrReadKeylessAction%22%7D%5D%5D%5D&__client_imported__=!",
+          "async": false
+        },
+        "app/[tenant]/(dashboard)/dashboard/page": {
+          "moduleId": "(rsc)/./node_modules/.pnpm/next@15.2.0_react-dom@19.0.0_react@19.0.0/node_modules/next/dist/build/webpack/loaders/next-flight-action-entry-loader.js?actions=%5B%5B%22%2FUsers%2Femersonchristie%2FEmerson%20Studio%2Fopen-studio-workspace%2Fopen-studio%2Fnode_modules%2F%40clerk%2Fnextjs%2Fdist%2Fesm%2Fapp-router%2Fkeyless-actions.js%22%2C%5B%7B%22id%22%3A%227f02ec5920db39edf4d8c8a9bbcbef8406ae3bb438%22%2C%22exportedName%22%3A%22syncKeylessConfigAction%22%7D%2C%7B%22id%22%3A%227f710c7d19f8219105f126118c57db96cd310dcd6c%22%2C%22exportedName%22%3A%22deleteKeylessAction%22%7D%2C%7B%22id%22%3A%227fb6fc9fbaeeb30a3d7e5331ba3578284e36d25947%22%2C%22exportedName%22%3A%22createOrReadKeylessAction%22%7D%5D%5D%5D&__client_imported__=!",
+          "async": false
+        },
+        "app/[tenant]/(dashboard)/tasks/page": {
+          "moduleId": "(rsc)/./node_modules/.pnpm/next@15.2.0_react-dom@19.0.0_react@19.0.0/node_modules/next/dist/build/webpack/loaders/next-flight-action-entry-loader.js?actions=%5B%5B%22%2FUsers%2Femersonchristie%2FEmerson%20Studio%2Fopen-studio-workspace%2Fopen-studio%2Fnode_modules%2F%40clerk%2Fnextjs%2Fdist%2Fesm%2Fapp-router%2Fkeyless-actions.js%22%2C%5B%7B%22id%22%3A%227f02ec5920db39edf4d8c8a9bbcbef8406ae3bb438%22%2C%22exportedName%22%3A%22syncKeylessConfigAction%22%7D%2C%7B%22id%22%3A%227f710c7d19f8219105f126118c57db96cd310dcd6c%22%2C%22exportedName%22%3A%22deleteKeylessAction%22%7D%2C%7B%22id%22%3A%227fb6fc9fbaeeb30a3d7e5331ba3578284e36d25947%22%2C%22exportedName%22%3A%22createOrReadKeylessAction%22%7D%5D%5D%5D&__client_imported__=!",
+          "async": false
+        }
+      },
+      "layer": {
+        "app/page": "rsc",
+        "app/setup-organization/page": "rsc",
+        "app/[tenant]/(dashboard)/page": "rsc",
+        "app/_not-found/page": "rsc",
+        "app/[tenant]/(dashboard)/users/page": "rsc",
+        "app/(auth)/sign-in/[[...rest]]/page": "rsc",
+        "app/[tenant]/(dashboard)/settings/page": "rsc",
+        "app/[tenant]/(dashboard)/dashboard/page": "rsc",
+        "app/[tenant]/(dashboard)/tasks/page": "rsc"
+      }
+    },
+    "7f9d9f0b17a3ac6f4ab6ba425a5a336b2ecbd6ded2": {
+      "workers": {
+        "app/page": {
+          "moduleId": "(action-browser)/./node_modules/.pnpm/next@15.2.0_react-dom@19.0.0_react@19.0.0/node_modules/next/dist/build/webpack/loaders/next-flight-action-entry-loader.js?actions=%5B%5B%22%2FUsers%2Femersonchristie%2FEmerson%20Studio%2Fopen-studio-workspace%2Fopen-studio%2Fnode_modules%2F%40clerk%2Fnextjs%2Fdist%2Fesm%2Fapp-router%2Fserver-actions.js%22%2C%5B%7B%22id%22%3A%227f9d9f0b17a3ac6f4ab6ba425a5a336b2ecbd6ded2%22%2C%22exportedName%22%3A%22invalidateCacheAction%22%7D%5D%5D%5D&__client_imported__=true!",
+          "async": false
+        },
+        "app/setup-organization/page": {
+          "moduleId": "(action-browser)/./node_modules/.pnpm/next@15.2.0_react-dom@19.0.0_react@19.0.0/node_modules/next/dist/build/webpack/loaders/next-flight-action-entry-loader.js?actions=%5B%5B%22%2FUsers%2Femersonchristie%2FEmerson%20Studio%2Fopen-studio-workspace%2Fopen-studio%2Fnode_modules%2F%40clerk%2Fnextjs%2Fdist%2Fesm%2Fapp-router%2Fserver-actions.js%22%2C%5B%7B%22id%22%3A%227f9d9f0b17a3ac6f4ab6ba425a5a336b2ecbd6ded2%22%2C%22exportedName%22%3A%22invalidateCacheAction%22%7D%5D%5D%5D&__client_imported__=true!",
+          "async": false
+        },
+        "app/[tenant]/(dashboard)/page": {
+          "moduleId": "(action-browser)/./node_modules/.pnpm/next@15.2.0_react-dom@19.0.0_react@19.0.0/node_modules/next/dist/build/webpack/loaders/next-flight-action-entry-loader.js?actions=%5B%5B%22%2FUsers%2Femersonchristie%2FEmerson%20Studio%2Fopen-studio-workspace%2Fopen-studio%2Fnode_modules%2F%40clerk%2Fnextjs%2Fdist%2Fesm%2Fapp-router%2Fserver-actions.js%22%2C%5B%7B%22id%22%3A%227f9d9f0b17a3ac6f4ab6ba425a5a336b2ecbd6ded2%22%2C%22exportedName%22%3A%22invalidateCacheAction%22%7D%5D%5D%5D&__client_imported__=true!",
+          "async": false
+        },
+        "app/_not-found/page": {
+          "moduleId": "(action-browser)/./node_modules/.pnpm/next@15.2.0_react-dom@19.0.0_react@19.0.0/node_modules/next/dist/build/webpack/loaders/next-flight-action-entry-loader.js?actions=%5B%5B%22%2FUsers%2Femersonchristie%2FEmerson%20Studio%2Fopen-studio-workspace%2Fopen-studio%2Fnode_modules%2F%40clerk%2Fnextjs%2Fdist%2Fesm%2Fapp-router%2Fserver-actions.js%22%2C%5B%7B%22id%22%3A%227f9d9f0b17a3ac6f4ab6ba425a5a336b2ecbd6ded2%22%2C%22exportedName%22%3A%22invalidateCacheAction%22%7D%5D%5D%5D&__client_imported__=true!",
+          "async": false
+        },
+        "app/[tenant]/(dashboard)/users/page": {
+          "moduleId": "(action-browser)/./node_modules/.pnpm/next@15.2.0_react-dom@19.0.0_react@19.0.0/node_modules/next/dist/build/webpack/loaders/next-flight-action-entry-loader.js?actions=%5B%5B%22%2FUsers%2Femersonchristie%2FEmerson%20Studio%2Fopen-studio-workspace%2Fopen-studio%2Fnode_modules%2F%40clerk%2Fnextjs%2Fdist%2Fesm%2Fapp-router%2Fserver-actions.js%22%2C%5B%7B%22id%22%3A%227f9d9f0b17a3ac6f4ab6ba425a5a336b2ecbd6ded2%22%2C%22exportedName%22%3A%22invalidateCacheAction%22%7D%5D%5D%5D&__client_imported__=true!",
+          "async": false
+        },
+        "app/(auth)/sign-in/[[...rest]]/page": {
+          "moduleId": "(action-browser)/./node_modules/.pnpm/next@15.2.0_react-dom@19.0.0_react@19.0.0/node_modules/next/dist/build/webpack/loaders/next-flight-action-entry-loader.js?actions=%5B%5B%22%2FUsers%2Femersonchristie%2FEmerson%20Studio%2Fopen-studio-workspace%2Fopen-studio%2Fnode_modules%2F%40clerk%2Fnextjs%2Fdist%2Fesm%2Fapp-router%2Fserver-actions.js%22%2C%5B%7B%22id%22%3A%227f9d9f0b17a3ac6f4ab6ba425a5a336b2ecbd6ded2%22%2C%22exportedName%22%3A%22invalidateCacheAction%22%7D%5D%5D%5D&__client_imported__=true!",
+          "async": false
+        },
+        "app/[tenant]/(dashboard)/settings/page": {
+          "moduleId": "(action-browser)/./node_modules/.pnpm/next@15.2.0_react-dom@19.0.0_react@19.0.0/node_modules/next/dist/build/webpack/loaders/next-flight-action-entry-loader.js?actions=%5B%5B%22%2FUsers%2Femersonchristie%2FEmerson%20Studio%2Fopen-studio-workspace%2Fopen-studio%2Fnode_modules%2F%40clerk%2Fnextjs%2Fdist%2Fesm%2Fapp-router%2Fserver-actions.js%22%2C%5B%7B%22id%22%3A%227f9d9f0b17a3ac6f4ab6ba425a5a336b2ecbd6ded2%22%2C%22exportedName%22%3A%22invalidateCacheAction%22%7D%5D%5D%5D&__client_imported__=true!",
+          "async": false
+        },
+        "app/[tenant]/(dashboard)/dashboard/page": {
+          "moduleId": "(action-browser)/./node_modules/.pnpm/next@15.2.0_react-dom@19.0.0_react@19.0.0/node_modules/next/dist/build/webpack/loaders/next-flight-action-entry-loader.js?actions=%5B%5B%22%2FUsers%2Femersonchristie%2FEmerson%20Studio%2Fopen-studio-workspace%2Fopen-studio%2Fnode_modules%2F%40clerk%2Fnextjs%2Fdist%2Fesm%2Fapp-router%2Fserver-actions.js%22%2C%5B%7B%22id%22%3A%227f9d9f0b17a3ac6f4ab6ba425a5a336b2ecbd6ded2%22%2C%22exportedName%22%3A%22invalidateCacheAction%22%7D%5D%5D%5D&__client_imported__=true!",
+          "async": false
+        },
+        "app/[tenant]/(dashboard)/tasks/page": {
+          "moduleId": "(action-browser)/./node_modules/.pnpm/next@15.2.0_react-dom@19.0.0_react@19.0.0/node_modules/next/dist/build/webpack/loaders/next-flight-action-entry-loader.js?actions=%5B%5B%22%2FUsers%2Femersonchristie%2FEmerson%20Studio%2Fopen-studio-workspace%2Fopen-studio%2Fnode_modules%2F%40clerk%2Fnextjs%2Fdist%2Fesm%2Fapp-router%2Fserver-actions.js%22%2C%5B%7B%22id%22%3A%227f9d9f0b17a3ac6f4ab6ba425a5a336b2ecbd6ded2%22%2C%22exportedName%22%3A%22invalidateCacheAction%22%7D%5D%5D%5D&__client_imported__=true!",
+          "async": false
+        }
+      },
+      "layer": {
+        "app/page": "action-browser",
+        "app/setup-organization/page": "action-browser",
+        "app/[tenant]/(dashboard)/page": "action-browser",
+        "app/_not-found/page": "action-browser",
+        "app/[tenant]/(dashboard)/users/page": "action-browser",
+        "app/(auth)/sign-in/[[...rest]]/page": "action-browser",
+        "app/[tenant]/(dashboard)/settings/page": "action-browser",
+        "app/[tenant]/(dashboard)/dashboard/page": "action-browser",
+        "app/[tenant]/(dashboard)/tasks/page": "action-browser"
+      }
+    }
+  },
   "edge": {},
   "encryptionKey": "Ckfg8r6zicNX+a4E2EAPKRD2YDBhXcHEO+4Lb2ChKyQ="
 }
